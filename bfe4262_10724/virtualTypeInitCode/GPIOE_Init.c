@@ -1,0 +1,55 @@
+/******************************<<config wizard begin>>*************************
+<group=pin>Pin used
+      <list>PE2
+           <DISABLE=>Disable
+           <PE2=>Enable
+           <code>$NOCODE$
+      <list>PE3
+           <DISABLE=>Disable
+           <PE3=>Enable
+           <code>$NOCODE$
+      <list>PE4
+           <DISABLE=>Disable
+           <PE4=>Enable
+           <code>$NOCODE$
+      <list>PE7
+           <DISABLE=>Disable
+           <PE7=>Enable
+           <code>$NOCODE$
+      <list>PE10
+           <DISABLE=>Disable
+           <PE10=>Enable
+           <code>$NOCODE$
+      <list>PE11
+           <DISABLE=>Disable
+           <PE11=>Enable
+           <code>$NOCODE$
+      <list>PE12
+           <DISABLE=>Disable
+           <PE12=>Enable
+           <code>$NOCODE$
+      <list>PE13
+           <DISABLE=>Disable
+           <PE13=>Enable
+           <code>$NOCODE$
+      <list>PE14
+           <DISABLE=>Disable
+           <PE14=>Enable
+           <code>$NOCODE$
+      <list>PE15
+           <DISABLE=>Disable
+           <PE15=>Enable
+           <code>$NOCODE$
+      <list>PE0
+           <DISABLE=>Disable
+           <PE0=>Enable
+           <code>$NOCODE$
+      <list>PE1
+           <DISABLE=>Disable
+           <PE1=>Enable
+           <code>$NOCODE$
+</group>
+******************************<<config wizard end>>***************************/
+void GPIOE_Init()
+{
+}
