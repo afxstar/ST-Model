@@ -1,1259 +1,1067 @@
 /**********************<<config wizard begin>>*********************************
 <group>Peripheral
     <list>Peripheral Name
-        <EXTI=>EXTI
-    <code>$exti$
+        <TIM3=>TIM3
+	    <code>$tim3$
 </group>
 
-<group>EXTI Channel 0 Init 
-    <list>Channel 0
+<group>Time-Base Config
+    <input=integer[0-65535]>Period
+        <default>0
+	    <code>$tim3Period$
+    <input=integer[0-65535]>Prescaler
+        <default>0
+	    <code>$tim3Psclr$
+    <list>Clock Division
+	    <TIM_CKD_DIV1=>DIV1
+		<TIM_CKD_DIV2=>DIV2
+        <TIM_CKD_DIV4=>DIV4
+	    <code>$tim3ClkDiv$
+    <list>Counter Mode
+        <TIM_CounterMode_Up=>Up
+        <TIM_CounterMode_Down=>Down
+        <TIM_CounterMode_CenterAligned1=>CenterAligned1
+        <TIM_CounterMode_CenterAligned2=>CenterAligned2
+        <TIM_CounterMode_CenterAligned3=>CenterAligned3
+	    <code>$tim3CntMode$
+    <list>ARR Preload Enable
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh0Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA0
-        <GPIO_PortSourceGPIOB=>PB0
-        <GPIO_PortSourceGPIOC=>PC0
-        <GPIO_PortSourceGPIOD=>PD0
-        <GPIO_PortSourceGPIOE=>PE0
-    <code>$extiCh0LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh0Mode$
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh0IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA0
-        <GPIO_PortSourceGPIOB=>PB0
-        <GPIO_PortSourceGPIOC=>PC0
-        <GPIO_PortSourceGPIOD=>PD0
-        <GPIO_PortSourceGPIOE=>PE0
-    <code>$extiCh0OutputPin$	    
+	    <code>$tim3ARRMode$
 </group>
 
-<group>EXTI Channel 1 Init 
-    <list>Channel 1
+<group>Mode Set
+    <list>Master Mode
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh1Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA1
-        <GPIO_PortSourceGPIOB=>PB1
-        <GPIO_PortSourceGPIOC=>PC1
-        <GPIO_PortSourceGPIOD=>PD1
-        <GPIO_PortSourceGPIOE=>PE1
-    <code>$extiCh1LinePin$   
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh1Mode$
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh1IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA1
-        <GPIO_PortSourceGPIOB=>PB1
-        <GPIO_PortSourceGPIOC=>PC1
-        <GPIO_PortSourceGPIOD=>PD1
-        <GPIO_PortSourceGPIOE=>PE1
-    <code>$extiCh1OutputPin$	
-</group>
-
-<group>EXTI Channel 2 Init 
-    <list>Channel 2
+	    <code>$masterEn$
+    <list>Master TRGO Source
+        <TIM_TRGOSource_Reset=>None
+        <TIM_TRGOSource_Reset=>Reset
+        <TIM_TRGOSource_Enable=>Enable1
+        <TIM_TRGOSource_Update=>Update
+        <TIM_TRGOSource_OC1=>OC1
+        <TIM_TRGOSource_OC1Ref=>OC1Ref
+        <TIM_TRGOSource_OC2Ref=>OC2Ref
+        <TIM_TRGOSource_OC3Ref=>OC3Ref
+        <TIM_TRGOSource_OC4Ref=>OC4Ref
+	    <code>$masterTRGOSrc$
+    <list>Slave Mode
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh2Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA2
-        <GPIO_PortSourceGPIOB=>PB2
-        <GPIO_PortSourceGPIOC=>PC2
-        <GPIO_PortSourceGPIOD=>PD2
-        <GPIO_PortSourceGPIOE=>PE2
-    <code>$extiCh2LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh2Mode$
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh2IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA2
-        <GPIO_PortSourceGPIOB=>PB2
-        <GPIO_PortSourceGPIOC=>PC2
-        <GPIO_PortSourceGPIOD=>PD2
-        <GPIO_PortSourceGPIOE=>PE2
-    <code>$extiCh2OutputPin$	
-</group>
-
-<group>EXTI Channel 3 Init 
-    <list>Channel 3
+	    <code>$slaveEn$
+    <list>Slave Mode Set
+        <DISABLE=>Disable(Internal Clock)
+        <TIM_SlaveMode_Reset=>Reset
+        <TIM_SlaveMode_Gated=>Gated
+        <TIM_SlaveMode_Trigger=>Trigger
+        <TIM_SlaveMode_External1=>External1
+        <code>$slaveModeSet$
+    <list>Single Pulse Mode
+        <TIM_OPMode_Repetitive=>Disable
+        <TIM_OPMode_Single=>Enable
+        <code>$onePulseEn$
+    <list>Hall sensor interface
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh3Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA3
-        <GPIO_PortSourceGPIOB=>PB3
-        <GPIO_PortSourceGPIOC=>PC3
-        <GPIO_PortSourceGPIOD=>PD3
-        <GPIO_PortSourceGPIOE=>PE3
-    <code>$extiCh3LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh3Mode$	
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh3IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA3
-        <GPIO_PortSourceGPIOB=>PB3
-        <GPIO_PortSourceGPIOC=>PC3
-        <GPIO_PortSourceGPIOD=>PD3
-        <GPIO_PortSourceGPIOE=>PE3
-    <code>$extiCh3OutputPin$	
+	    <code>$hallSensorEn$
 </group>
 
-<group>EXTI Channel 4 Init 
-    <list>Channel 4
+<group>Encoder Interface
+    <list>Encoder Enable
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh4Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA4
-        <GPIO_PortSourceGPIOB=>PB4
-        <GPIO_PortSourceGPIOC=>PC4
-        <GPIO_PortSourceGPIOD=>PD4
-        <GPIO_PortSourceGPIOE=>PE4
-    <code>$extiCh4LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh4Mode$
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh4IntTypeInit$
-	    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA4
-        <GPIO_PortSourceGPIOB=>PB4
-        <GPIO_PortSourceGPIOC=>PC4
-        <GPIO_PortSourceGPIOD=>PD4
-        <GPIO_PortSourceGPIOE=>PE4
-    <code>$extiCh4OutputPin$	
+	    <code>$encoderEn$
+    <list>Encoder Mode
+        <TIM_EncoderMode_TI1=>Encoder mode 1
+        <TIM_EncoderMode_TI2=>Encoder mode 2
+        <TIM_EncoderMode_TI12=>Encoder mode 3
+        <code>$extiCh1OutputPin$
+    <list>Encoder IC1 Polarity
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_Rising=>Rising
+        <code>$EncodeIC1Polar$
+    <list>Encoder IC2 Polarity
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_Rising=>Rising
+        <code>$EncodeIC2Polar$	
 </group>
 
-<group>EXTI Channel 5 Init 
-    <list>Channel 5
+<group>Clock selection
+    <list>Internal clock
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh5Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA5
-        <GPIO_PortSourceGPIOB=>PB5
-        <GPIO_PortSourceGPIOC=>PC5
-        <GPIO_PortSourceGPIOD=>PD5
-        <GPIO_PortSourceGPIOE=>PE5
-    <code>$extiCh5LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh5Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh5IntTypeInit$
-	    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA5
-        <GPIO_PortSourceGPIOB=>PB5
-        <GPIO_PortSourceGPIOC=>PC5
-        <GPIO_PortSourceGPIOD=>PD5
-        <GPIO_PortSourceGPIOE=>PE5
-    <code>$extiCh5OutputPin$	
+        <code>$interClkEn$
+    <list>Internal Trigger
+        <DISABLE=>None
+        <TIM_ITRSource=>ITRSource
+        <TIM_TS_ITR0=>ITR0
+        <TIM_TS_ITR1=>ITR1
+        <TIM_TS_ITR2=>ITR2
+        <TIM_TS_ITR3=>ITR3
+        <code>$interTrigr$
+    <list>TIMx Trigger
+        <DISABLE=>None
+        <TIM_TIxExternalCLK1Source_TI1ED=>TI1ED
+        <TIM_TIxExternalCLK1Source_TI1=>TI1
+        <TIM_TIxExternalCLK1Source_TI2=>TI2
+        <code>$timxTrigr$
+    <list>External Trigger
+        <DISABLE=>None
+        <GPIO_PortSourceGPIOB=>External Trigger Mode 1
+        <GPIO_PortSourceGPIOC=>External Trigger Mode 2
+        <code>$extTrigr$
 </group>
 
-<group>EXTI Channel 6 Init 
-    <list>Channel 6
+<group>Channel 1 Config
+    <list>Channel 1 Enable
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh6Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA6
-        <GPIO_PortSourceGPIOB=>PB6
-        <GPIO_PortSourceGPIOC=>PC6
-        <GPIO_PortSourceGPIOD=>PD6
-        <GPIO_PortSourceGPIOE=>PE6
-    <code>$extiCh6LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh6Mode$	
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh6IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA6
-        <GPIO_PortSourceGPIOB=>PB6
-        <GPIO_PortSourceGPIOC=>PC6
-        <GPIO_PortSourceGPIOD=>PD6
-        <GPIO_PortSourceGPIOE=>PE6
-    <code>$extiCh1OutputPin$	
-</group>
-
-<group>EXTI Channel 7 Init 
-    <list>Channel 7
+        <code>$ch1En$
+    <list>Cap/Comp Select
+        <COMPARE_ENABLE=>Output Compare
+        <CAPTURE_ENABLE=>Input Capture
+        <code>$ch1sel$
+    <list>OC1 Mode
+        <TIM_OCMode_Timing=>Timing
+        <TIM_OCMode_Active=>Active
+        <TIM_OCMode_Inactive=>Inactive
+        <TIM_OCMode_Toggle=>Toggle
+        <TIM_OCMode_PWM1=>PWM1
+        <TIM_OCMode_PWM2=>PWM2
+        <code>$oc1Mode$
+    <input=integer[0-65535]>OC1 Pluse
+        <default>0
+	    <code>$oc1Pluse$
+    <list>OC1 State
+        <TIM_OutputState_Disable=>Disable
+        <TIM_OutputState_Enable=>Enable
+        <code>$oc1State$
+    <list>OC1 Polarity
+        <TIM_OCPolarity_High=>High
+        <TIM_OCPolarity_Low=>Low
+        <code>$oc1Polar$
+    <list>OC1 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh7Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA7
-        <GPIO_PortSourceGPIOB=>PB7
-        <GPIO_PortSourceGPIOC=>PC7
-        <GPIO_PortSourceGPIOD=>PD7
-        <GPIO_PortSourceGPIOE=>PE7
-    <code>$extiCh7LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh7Mode$	
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh7IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA7
-        <GPIO_PortSourceGPIOB=>PB7
-        <GPIO_PortSourceGPIOC=>PC7
-        <GPIO_PortSourceGPIOD=>PD7
-        <GPIO_PortSourceGPIOE=>PE7
-    <code>$extiCh7OutputPin$	
-</group>
-
-<group>EXTI Channel 8 Init 
-    <list>Channel 8
+        <code>$oc1Preload$
+    <list>OC1 Fast Config
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh8Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA8
-        <GPIO_PortSourceGPIOB=>PB8
-        <GPIO_PortSourceGPIOC=>PC8
-        <GPIO_PortSourceGPIOD=>PD8
-        <GPIO_PortSourceGPIOE=>PE8
-    <code>$extiCh8LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh8Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh8IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA8
-        <GPIO_PortSourceGPIOB=>PB8
-        <GPIO_PortSourceGPIOC=>PC8
-        <GPIO_PortSourceGPIOD=>PD8
-        <GPIO_PortSourceGPIOE=>PE8
-    <code>$extiCh8OutputPin$	
-</group>
-
-<group>EXTI Channel 9 Init 
-    <list>Channel 9
+        <code>$oc1FastEn$
+    <list>Clear OC1 Ref
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh9Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA9
-        <GPIO_PortSourceGPIOB=>PB9
-        <GPIO_PortSourceGPIOC=>PC9
-        <GPIO_PortSourceGPIOD=>PD9
-        <GPIO_PortSourceGPIOE=>PE9
-    <code>$extiCh9LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh9Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh9IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA9
-        <GPIO_PortSourceGPIOB=>PB9
-        <GPIO_PortSourceGPIOC=>PC9
-        <GPIO_PortSourceGPIOD=>PD9
-        <GPIO_PortSourceGPIOE=>PE9
-    <code>$extiCh9OutputPin$	
+        <code>$oc1clrRef$
+    <list>IC1 Polarity
+        <TIM_ICPolarity_Rising=>Rising
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_BothEdge=>BothEdge
+        <code>$ic1Polar$
+    <list>IC1 Selection
+        <TIM_ICSelection_DirectTI=>DirectTI
+        <TIM_ICSelection_IndirectTI=>IndirectTI
+        <TIM_ICSelection_TRC=>TRC
+        <code>$ic1Sel$
+    <list>IC1 Prescaler
+        <TIM_ICPSC_DIV1=>Disable
+        <TIM_ICPSC_DIV2=>Enable
+        <TIM_ICPSC_DIV4=>Disable
+        <TIM_ICPSC_DIV8=>Enable
+        <code>$ic1Psc$
+    <input=integer[0-15]>IC1 Filter[0-15]
+        <default>0
+        <code>$ic1Filter$
 </group>
 
-<group>EXTI Channel 10 Init 
-    <list>Channel 10
+<group>Channel 2 Config
+    <list>Channel 2 Enable
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh10Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA10
-        <GPIO_PortSourceGPIOB=>PB10
-        <GPIO_PortSourceGPIOC=>PC10
-        <GPIO_PortSourceGPIOD=>PD10
-        <GPIO_PortSourceGPIOE=>PE10
-    <code>$extiCh10LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh10Mode$	
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh10IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA10
-        <GPIO_PortSourceGPIOB=>PB10
-        <GPIO_PortSourceGPIOC=>PC10
-        <GPIO_PortSourceGPIOD=>PD10
-        <GPIO_PortSourceGPIOE=>PE10
-    <code>$extiCh10OutputPin$	
-</group>
-
-<group>EXTI Channel 11 Init 
-    <list>Channel 11
+        <code>$ch2En$
+    <list>Cap/Comp Select
+        <COMPARE_ENABLE=>Output Compare
+        <CAPTURE_ENABLE=>Input Capture
+        <code>$ch2sel$
+    <list>OC2 Mode
+        <TIM_OCMode_Timing=>Timing
+        <TIM_OCMode_Active=>Active
+        <TIM_OCMode_Inactive=>Inactive
+        <TIM_OCMode_Toggle=>Toggle
+        <TIM_OCMode_PWM1=>PWM1
+        <TIM_OCMode_PWM2=>PWM2
+        <code>$OC2Mode$
+    <input=integer[0-65535]>OC2 Pluse
+        <default>0
+	    <code>$OC2Pluse$
+    <list>OC2 State
+        <TIM_OutputState_Disable=>Disable
+        <TIM_OutputState_Enable=>Enable
+        <code>$OC2State$
+    <list>OC2 Polarity
+        <TIM_OCPolarity_High=>High
+        <TIM_OCPolarity_Low=>Low
+        <code>$OC2Polar$
+    <list>OC2 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh11Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA11
-        <GPIO_PortSourceGPIOB=>PB11
-        <GPIO_PortSourceGPIOC=>PC11
-        <GPIO_PortSourceGPIOD=>PD11
-        <GPIO_PortSourceGPIOE=>PE11
-    <code>$extiCh11LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh11Mode$	
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh11IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA11
-        <GPIO_PortSourceGPIOB=>PB11
-        <GPIO_PortSourceGPIOC=>PC11
-        <GPIO_PortSourceGPIOD=>PD11
-        <GPIO_PortSourceGPIOE=>PE11
-    <code>$extiCh11OutputPin$	
-</group>
-
-<group>EXTI Channel 12 Init 
-    <list>Channel 12
+        <code>$OC2Preload$
+    <list>OC2 Fast Config
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh12Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA12
-        <GPIO_PortSourceGPIOB=>PB12
-        <GPIO_PortSourceGPIOC=>PC12
-        <GPIO_PortSourceGPIOD=>PD12
-        <GPIO_PortSourceGPIOE=>PE12
-    <code>$extiCh12LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh12Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh12IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA12
-        <GPIO_PortSourceGPIOB=>PB12
-        <GPIO_PortSourceGPIOC=>PC12
-        <GPIO_PortSourceGPIOD=>PD12
-        <GPIO_PortSourceGPIOE=>PE12
-    <code>$extiCh12OutputPin$	
-</group>
-
-<group>EXTI Channel 13 Init 
-    <list>Channel 13
+        <code>$oc2FastEn$
+    <list>Clear OC2 Ref
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh13Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA13
-        <GPIO_PortSourceGPIOB=>PB13
-        <GPIO_PortSourceGPIOC=>PC13
-        <GPIO_PortSourceGPIOD=>PD13
-        <GPIO_PortSourceGPIOE=>PE13
-    <code>$extiCh13LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh13Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh13IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA13
-        <GPIO_PortSourceGPIOB=>PB13
-        <GPIO_PortSourceGPIOC=>PC13
-        <GPIO_PortSourceGPIOD=>PD13
-        <GPIO_PortSourceGPIOE=>PE13
-    <code>$extiCh13OutputPin$	
+        <code>$OC2clrRef$
+    <list>IC2 Polarity
+        <TIM_ICPolarity_Rising=>Rising
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_BothEdge=>BothEdge
+        <code>$IC2Polar$
+    <list>IC2 Selection
+        <TIM_ICSelection_DirectTI=>DirectTI
+        <TIM_ICSelection_IndirectTI=>IndirectTI
+        <TIM_ICSelection_TRC=>TRC
+        <code>$IC2Sel$
+    <list>IC2 Prescaler
+        <TIM_ICPSC_DIV1=>Disable
+        <TIM_ICPSC_DIV2=>Enable
+        <TIM_ICPSC_DIV4=>Disable
+        <TIM_ICPSC_DIV8=>Enable
+        <code>$IC2Psc$
+    <input=integer[0-15]>IC2 Filter[0-15]
+        <default>0
+        <code>$IC2Filter$
 </group>
 
-<group>EXTI Channel 14 Init 
-    <list>Channel 14
+<group>Channel 3 Config
+    <list>Channel 3 Enable
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh14Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA14
-        <GPIO_PortSourceGPIOB=>PB14
-        <GPIO_PortSourceGPIOC=>PC14
-        <GPIO_PortSourceGPIOD=>PD14
-        <GPIO_PortSourceGPIOE=>PE14
-    <code>$extiCh14LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh14Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh14IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA14
-        <GPIO_PortSourceGPIOB=>PB14
-        <GPIO_PortSourceGPIOC=>PC14
-        <GPIO_PortSourceGPIOD=>PD14
-        <GPIO_PortSourceGPIOE=>PE14
-    <code>$extiCh14OutputPin$	
-</group>
-
-<group>EXTI Channel 15 Init 
-    <list>Channel 15
+        <code>$ch3En$
+    <list>Cap/Comp Select
+        <COMPARE_ENABLE=>Output Compare
+        <CAPTURE_ENABLE=>Input Capture
+        <code>$ch3sel$
+    <list>OC3 Mode
+        <TIM_OCMode_Timing=>Timing
+        <TIM_OCMode_Active=>Active
+        <TIM_OCMode_Inactive=>Inactive
+        <TIM_OCMode_Toggle=>Toggle
+        <TIM_OCMode_PWM1=>PWM1
+        <TIM_OCMode_PWM2=>PWM2
+        <code>$OC3Mode$
+    <input=integer[0-65535]>OC3 Pluse
+        <default>0
+	    <code>$OC3Pluse$
+    <list>OC3 State
+        <TIM_OutputState_Disable=>Disable
+        <TIM_OutputState_Enable=>Enable
+        <code>$OC3State$
+    <list>OC3 Polarity
+        <TIM_OCPolarity_High=>High
+        <TIM_OCPolarity_Low=>Low
+        <code>$OC3Polar$
+    <list>OC3 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$extiCh15Enable$
-    <list>EXTI Line pin
-        <GPIO_PortSourceGPIOA=>PA15
-        <GPIO_PortSourceGPIOB=>PB15
-        <GPIO_PortSourceGPIOC=>PC15
-        <GPIO_PortSourceGPIOD=>PD15
-        <GPIO_PortSourceGPIOE=>PE15
-    <code>$extiCh15LinePin$
-    <list>EXTI mode
-	    <EXTI_Mode_Interrupt=>Interrupt
-		<EXTI_Mode_Event=>Event
-    <code>$extiCh15Mode$    
-    <list>EXTI trigger type
-        <EXTI_Trigger_Falling=>Falling Trigger
-        <EXTI_Trigger_Rising=>Rising Trigger
-        <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$extiCh15IntTypeInit$
-    <list>Event output pin
-        <GPIO_PortSourceGPIOA=>PA15
-        <GPIO_PortSourceGPIOB=>PB15
-        <GPIO_PortSourceGPIOC=>PC15
-        <GPIO_PortSourceGPIOD=>PD15
-        <GPIO_PortSourceGPIOE=>PE15
-    <code>$extiCh15OutputPin$	
+        <code>$OC3Preload$
+    <list>OC3 Fast Config
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$oc3FastEn$
+    <list>Clear OC3 Ref
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$OC3clrRef$
+    <list>IC3 Polarity
+        <TIM_ICPolarity_Rising=>Rising
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_BothEdge=>BothEdge
+        <code>$IC3Polar$
+    <list>IC3 Selection
+        <TIM_ICSelection_DirectTI=>DirectTI
+        <TIM_ICSelection_IndirectTI=>IndirectTI
+        <TIM_ICSelection_TRC=>TRC
+        <code>$IC3Sel$
+    <list>IC3 Prescaler
+        <TIM_ICPSC_DIV1=>Disable
+        <TIM_ICPSC_DIV2=>Enable
+        <TIM_ICPSC_DIV4=>Disable
+        <TIM_ICPSC_DIV8=>Enable
+        <code>$IC3Psc$
+    <input=integer[0-15]>IC3 Filter[0-15]
+        <default>0
+        <code>$IC3Filter$
+</group>
+
+<group>Channel 4 Config
+    <list>Channel 4 Enable
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$ch4En$
+    <list>Cap/Comp Select
+        <COMPARE_ENABLE=>Output Compare
+        <CAPTURE_ENABLE=>Input Capture
+        <code>$ch4sel$
+    <list>OC4 Mode
+        <TIM_OCMode_Timing=>Timing
+        <TIM_OCMode_Active=>Active
+        <TIM_OCMode_Inactive=>Inactive
+        <TIM_OCMode_Toggle=>Toggle
+        <TIM_OCMode_PWM1=>PWM1
+        <TIM_OCMode_PWM2=>PWM2
+        <code>$OC4Mode$
+    <input=integer[0-65535]>OC4 Pluse
+        <default>0
+	    <code>$OC4Pluse$
+    <list>OC4 State
+        <TIM_OutputState_Disable=>Disable
+        <TIM_OutputState_Enable=>Enable
+        <code>$OC4State$
+    <list>OC4 Polarity
+        <TIM_OCPolarity_High=>High
+        <TIM_OCPolarity_Low=>Low
+        <code>$OC4Polar$
+    <list>OC4 Preload
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$OC4Preload$
+    <list>OC4 Fast Config
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$oc4FastEn$
+    <list>Clear OC4 Ref
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$OC4clrRef$
+    <list>IC4 Polarity
+        <TIM_ICPolarity_Rising=>Rising
+        <TIM_ICPolarity_Falling=>Falling
+        <TIM_ICPolarity_BothEdge=>BothEdge
+        <code>$IC4Polar$
+    <list>IC4 Selection
+        <TIM_ICSelection_DirectTI=>DirectTI
+        <TIM_ICSelection_IndirectTI=>IndirectTI
+        <TIM_ICSelection_TRC=>TRC
+        <code>$IC4Sel$
+    <list>IC4 Prescaler
+        <TIM_ICPSC_DIV1=>Disable
+        <TIM_ICPSC_DIV2=>Enable
+        <TIM_ICPSC_DIV4=>Disable
+        <TIM_ICPSC_DIV8=>Enable
+        <code>$IC4Psc$
+    <input=integer[0-15]>IC4 Filter[0-15]
+        <default>0
+        <code>$IC4Filter$
+</group>
+
+<group>Event Config
+    <list>Update Event
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$evtUpdate$
+    <list>Update Request Source
+        <TIM_UpdateSource_Regular=>Regular
+        <TIM_UpdateSource_Global=>Global
+        <code>$updateRqstSrc$
+</group>
+
+<group=or>Interrupt Config
+    <list>Update Interrupt
+        <0=>Disable
+        <TIM_IT_Update=>Enable
+    <list>CC1 Interrupt
+        <0=>Disable
+        <TIM_IT_CC1=>Enable
+    <list>CC2 Interrupt
+        <0=>Disable
+        <TIM_IT_CC2=>Enable
+    <list>CC3 Interrupt
+        <0=>Disable
+        <TIM_IT_CC3=>Enable
+    <list>CC4 Interrupt
+        <0=>Disable
+        <TIM_IT_CC4=>Enable
+    <list>Trigger Interrupt
+        <0=>Disable
+        <TIM_IT_Trigger=>Enable
+        <code>$tim3IntEn$
+</group>
+
+<group>DMA Config
+    <list>DMA Enable
+        <DISABLE=>Disable
+        <ENABLE=>Enable
+        <code>$tim3dmaEn$
+    <list>DMA Base Address
+        <TIM_DMABase_CR1=>CR1
+        <TIM_DMABase_CR2=>CR2
+        <TIM_DMABase_SMCR=>SMCR
+        <TIM_DMABase_DIER=>DIER
+        <TIM1_DMABase_SR=>SR
+        <TIM_DMABase_EGR=>EGR
+        <TIM_DMABase_CCMR1=>CCMR1
+        <TIM_DMABase_CCMR2=>CCMR2
+        <TIM_DMABase_CCER=>CCER
+        <TIM_DMABase_CNT=>CNT
+        <TIM_DMABase_PSC=>PSC
+        <TIM_DMABase_ARR=>ARR
+        <TIM_DMABase_CCR1=>CCR1
+        <TIM_DMABase_CCR2=>CCR2
+        <TIM_DMABase_CCR3=>CCR3
+        <TIM_DMABase_CCR4=>CCR4
+        <TIM_DMABase_DCR=>DCR
+        <code>$dmaBaseAddr$
+    <list>DMA Burst Length
+        <TIM_DMABurstLength_1Transfer=>1
+        <TIM_DMABurstLength_2Transfer=>2
+        <TIM_DMABurstLength_3Transfer=>3
+        <TIM_DMABurstLength_4Transfer=>4
+        <TIM_DMABurstLength_5Transfer=>5
+        <TIM_DMABurstLength_6Transfer=>6
+        <TIM_DMABurstLength_7Transfer=>7
+        <TIM_DMABurstLength_8Transfer=>8
+        <TIM_DMABurstLength_9Transfer=>9
+        <TIM_DMABurstLength_10Transfer=>10
+        <TIM_DMABurstLength_11Transfer=>11
+        <TIM_DMABurstLength_12Transfer=>12
+        <TIM_DMABurstLength_13Transfer=>13
+        <TIM_DMABurstLength_14Transfer=>14
+        <TIM_DMABurstLength_15Transfer=>15
+        <TIM_DMABurstLength_16Transfer=>16
+        <TIM_DMABurstLength_17Transfer=>17
+        <TIM_DMABurstLength_18Transfer=>18
+        <code>$dmaBurstLen$
+</group>
+
+<group=or>DMA Request Source
+    <list>Update
+        <0=>Disable
+        <TIM_DMA_Update=>Enable
+    <list>CC1
+        <0=>Disable
+        <TIM_DMA_CC1=>Enable
+    <list>CC2
+        <0=>Disable
+        <TIM_DMA_CC2=>Enable
+    <list>CC3
+        <0=>Disable
+        <TIM_DMA_CC3=>Enable
+    <list>CC4
+        <0=>Disable
+        <TIM_DMA_CC4=>Enable
+    <list>Trigger
+        <0=>Disable
+        <TIM_DMA_Trigger=>Enable
+        <code>$tim3dmaRqstSrc$
 </group>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 0 Init->Channel 0 = Disable
-    <action>EXTI Channel 0 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 0 Init->EXTI mode = Disable
-    <action>EXTI Channel 0 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 0 Init->Event output pin = Disable
+    <trigger>Mode Set->Master Mode = Disable
+    <action>Mode Set->Master TRGO Source = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 1 Init->Channel 1 = Disable
-    <action>EXTI Channel 1 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 1 Init->EXTI mode = Disable
-    <action>EXTI Channel 1 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 1 Init->Event output pin = Disable
+    <trigger>Mode Set->Slave Mode = Disable
+    <action>Mode Set->Slave Mode Set = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 2 Init->Channel 2 = Disable
-    <action>EXTI Channel 2 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 2 Init->EXTI mode = Disable
-    <action>EXTI Channel 2 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 2 Init->Event output pin = Disable
+    <trigger>Encoder Interface->Encoder Enable = Disable
+    <action>Encoder Interface->Encoder Mode = Disable
+    <action>Encoder Interface->Encoder IC1 Polarity = Disable
+    <action>Encoder Interface->Encoder IC2 Polarity = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 3 Init->Channel 3 = Disable
-    <action>EXTI Channel 3 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 3 Init->EXTI mode = Disable
-    <action>EXTI Channel 3 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 3 Init->Event output pin = Disable
+    <trigger>Clock selection->Internal clock = Enable
+    <action>Clock selection->Internal Trigger = Disable
+    <action>Clock selection->TIMx Trigger = Disable
+    <action>Clock selection->External Trigger = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 4 Init->Channel 4 = Disable
-    <action>EXTI Channel 4 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 4 Init->EXTI mode = Disable
-    <action>EXTI Channel 4 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 4 Init->Event output pin = Disable
+    <trigger>Channel 1 Config->Channel 1 Enable = Disable
+    <action>Channel 1 Config->Cap/Comp Select = Disable
+    <action>Channel 1 Config->OC1 Mode = Disable
+    <action>Channel 1 Config->OC1 Pluse = Disable
+    <action>Channel 1 Config->OC1 State = Disable
+    <action>Channel 1 Config->OC1 Polarity = Disable
+    <action>Channel 1 Config->OC1 Preload = Disable
+    <action>Channel 1 Config->OC1 Fast Config = Disable
+    <action>Channel 1 Config->Clear OC1 Ref = Disable
+    <action>Channel 1 Config->IC1 Polarity = Disable
+    <action>Channel 1 Config->IC1 Selection = Disable
+    <action>Channel 1 Config->IC1 Prescaler = Disable
+    <action>Channel 1 Config->IC1 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 5 Init->Channel 5 = Disable
-    <action>EXTI Channel 5 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 5 Init->EXTI mode = Disable
-    <action>EXTI Channel 5 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 5 Init->Event output pin = Disable
+    <trigger>Channel 2 Config->Channel 2 Enable = Disable
+    <action>Channel 2 Config->Cap/Comp Select = Disable
+    <action>Channel 2 Config->OC2 Mode = Disable
+    <action>Channel 2 Config->OC2 Pluse = Disable
+    <action>Channel 2 Config->OC2 State = Disable
+    <action>Channel 2 Config->OC2 Polarity = Disable
+    <action>Channel 2 Config->OC2 Preload = Disable
+    <action>Channel 2 Config->OC2 Fast Config = Disable
+    <action>Channel 2 Config->Clear OC2 Ref = Disable
+    <action>Channel 2 Config->IC2 Polarity = Disable
+    <action>Channel 2 Config->IC2 Selection = Disable
+    <action>Channel 2 Config->IC2 Prescaler = Disable
+    <action>Channel 2 Config->IC2 Filter[0-15] = Disable
+</dep>
+
+
+<dep>
+    <type>state
+    <trigger>Channel 3 Config->Channel 3 Enable = Disable
+    <action>Channel 3 Config->Cap/Comp Select = Disable
+    <action>Channel 3 Config->OC3 Mode = Disable
+    <action>Channel 3 Config->OC3 Pluse = Disable
+    <action>Channel 3 Config->OC3 State = Disable
+    <action>Channel 3 Config->OC3 Polarity = Disable
+    <action>Channel 3 Config->OC3 Preload = Disable
+    <action>Channel 3 Config->OC3 Fast Config = Disable
+    <action>Channel 3 Config->Clear OC3 Ref = Disable
+    <action>Channel 3 Config->IC3 Polarity = Disable
+    <action>Channel 3 Config->IC3 Selection = Disable
+    <action>Channel 3 Config->IC3 Prescaler = Disable
+    <action>Channel 3 Config->IC3 Filter[0-15] = Disable
+</dep>
+
+
+<dep>
+    <type>state
+    <trigger>Channel 4 Config->Channel 4 Enable = Disable
+    <action>Channel 4 Config->Cap/Comp Select = Disable
+    <action>Channel 4 Config->OC4 Mode = Disable
+    <action>Channel 4 Config->OC4 Pluse = Disable
+    <action>Channel 4 Config->OC4 State = Disable
+    <action>Channel 4 Config->OC4 Polarity = Disable
+    <action>Channel 4 Config->OC4 Preload = Disable
+    <action>Channel 4 Config->OC4 Fast Config = Disable
+    <action>Channel 4 Config->Clear OC4 Ref = Disable
+    <action>Channel 4 Config->IC4 Polarity = Disable
+    <action>Channel 4 Config->IC4 Selection = Disable
+    <action>Channel 4 Config->IC4 Prescaler = Disable
+    <action>Channel 4 Config->IC4 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 6 Init->Channel 6 = Disable
-    <action>EXTI Channel 6 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 6 Init->EXTI mode = Disable
-    <action>EXTI Channel 6 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 6 Init->Event output pin = Disable
+    <trigger>Channel 1 Config->Cap/Comp Select = Input Capture
+    <action>Channel 1 Config->OC1 Mode = Disable
+    <action>Channel 1 Config->OC1 Pluse = Disable
+    <action>Channel 1 Config->OC1 State = Disable
+    <action>Channel 1 Config->OC1 Polarity = Disable
+    <action>Channel 1 Config->OC1 Preload = Disable
+    <action>Channel 1 Config->OC1 Fast Config = Disable
+    <action>Channel 1 Config->Clear OC1 Ref = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 7 Init->Channel 7 = Disable
-    <action>EXTI Channel 7 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 7 Init->EXTI mode = Disable
-    <action>EXTI Channel 7 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 7 Init->Event output pin = Disable
+    <trigger>Channel 1 Config->Cap/Comp Select = Output Compare
+    <action>Channel 1 Config->IC1 Polarity = Disable
+    <action>Channel 1 Config->IC1 Selection = Disable
+    <action>Channel 1 Config->IC1 Prescaler = Disable
+    <action>Channel 1 Config->IC1 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 8 Init->Channel 8 = Disable
-    <action>EXTI Channel 8 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 8 Init->EXTI mode = Disable
-    <action>EXTI Channel 8 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 8 Init->Event output pin = Disable
+    <trigger>Channel 2 Config->Cap/Comp Select = Input Capture
+    <action>Channel 2 Config->OC2 Mode = Disable
+    <action>Channel 2 Config->OC2 Pluse = Disable
+    <action>Channel 2 Config->OC2 State = Disable
+    <action>Channel 2 Config->OC2 Polarity = Disable
+    <action>Channel 2 Config->OC2 Preload = Disable
+    <action>Channel 2 Config->OC2 Fast Config = Disable
+    <action>Channel 2 Config->Clear OC2 Ref = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 9 Init->Channel 9 = Disable
-    <action>EXTI Channel 9 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 9 Init->EXTI mode = Disable
-    <action>EXTI Channel 9 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 9 Init->Event output pin = Disable
+    <trigger>Channel 2 Config->Cap/Comp Select = Output Compare
+    <action>Channel 2 Config->IC2 Polarity = Disable
+    <action>Channel 2 Config->IC2 Selection = Disable
+    <action>Channel 2 Config->IC2 Prescaler = Disable
+    <action>Channel 2 Config->IC2 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 10 Init->Channel 10 = Disable
-    <action>EXTI Channel 10 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 10 Init->EXTI mode = Disable
-    <action>EXTI Channel 10 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 10 Init->Event output pin = Disable
+    <trigger>Channel 3 Config->Cap/Comp Select = Input Capture
+    <action>Channel 3 Config->OC3 Mode = Disable
+    <action>Channel 3 Config->OC3 Pluse = Disable
+    <action>Channel 3 Config->OC3 State = Disable
+    <action>Channel 3 Config->OC3 Polarity = Disable
+    <action>Channel 3 Config->OC3 Preload = Disable
+    <action>Channel 3 Config->OC3 Fast Config = Disable
+    <action>Channel 3 Config->Clear OC3 Ref = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 11 Init->Channel 11 = Disable
-    <action>EXTI Channel 11 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 11 Init->EXTI mode = Disable
-    <action>EXTI Channel 11 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 11 Init->Event output pin = Disable
+    <trigger>Channel 3 Config->Cap/Comp Select = Output Compare
+    <action>Channel 3 Config->IC3 Polarity = Disable
+    <action>Channel 3 Config->IC3 Selection = Disable
+    <action>Channel 3 Config->IC3 Prescaler = Disable
+    <action>Channel 3 Config->IC3 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 12 Init->Channel 12 = Disable
-    <action>EXTI Channel 12 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 12 Init->EXTI mode = Disable
-    <action>EXTI Channel 12 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 12 Init->Event output pin = Disable
+    <trigger>Channel 4 Config->Cap/Comp Select = Input Capture
+    <action>Channel 4 Config->OC4 Mode = Disable
+    <action>Channel 4 Config->OC4 Pluse = Disable
+    <action>Channel 4 Config->OC4 State = Disable
+    <action>Channel 4 Config->OC4 Polarity = Disable
+    <action>Channel 4 Config->OC4 Preload = Disable
+    <action>Channel 4 Config->OC4 Fast Config = Disable
+    <action>Channel 4 Config->Clear OC4 Ref = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 13 Init->Channel 13 = Disable
-    <action>EXTI Channel 13 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 13 Init->EXTI mode = Disable
-    <action>EXTI Channel 13 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 13 Init->Event output pin = Disable
+    <trigger>Channel 4 Config->Cap/Comp Select = Output Compare
+    <action>Channel 4 Config->IC4 Polarity = Disable
+    <action>Channel 4 Config->IC4 Selection = Disable
+    <action>Channel 4 Config->IC4 Prescaler = Disable
+    <action>Channel 4 Config->IC4 Filter[0-15] = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 14 Init->Channel 14 = Disable
-    <action>EXTI Channel 14 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 14 Init->EXTI mode = Disable
-    <action>EXTI Channel 14 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 14 Init->Event output pin = Disable
+    <trigger>Event Config->Update Event = Disable
+    <action>Event Config->Update Request Source = Disable
 </dep>
 
 <dep>
     <type>state
-    <trigger>EXTI Channel 15 Init->Channel 15 = Disable
-    <action>EXTI Channel 15 Init->EXTI Line pin = Disable
-    <action>EXTI Channel 15 Init->EXTI mode = Disable
-    <action>EXTI Channel 15 Init->EXTI trigger type = Disable
-    <action>EXTI Channel 15 Init->Event output pin = Disable
+    <trigger>DMA Config->DMA Enable = Disable
+    <action>DMA Config->DMA Base Address = Disable
+    <action>DMA Config->DMA Burst Length = Disable
+    <action>DMA Request Source = Disable
 </dep>
 
-<dep>
-    <type>state
-    <trigger>EXTI Channel 0 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 0 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 1 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 1 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 2 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 2 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 3 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 3 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 4 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 4 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 5 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 5 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 6 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 6 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 7 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 7 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 8 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 8 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 9 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 9 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 10 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 10 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 11 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 11 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 12 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 12 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 13 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 13 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 14 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 14 Init->Event output pin = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>EXTI Channel 15 Init->EXTI mode = Interrupt
-    <action>EXTI Channel 15 Init->Event output pin = Disable
-</dep>
 *******************************<<config wizard end>>**************************/
 #include "stm32f10x.h"
 #include "stm32f10x_rcc.h"
-#include "stm32f10x_exti.h"
+#include "stm32f10x_tim.h"
 
-#if (STRCMP($extiCh0Enable$, DISABLE) == 0 || STRCMP($extiCh1Enable$, DISABLE) == 0 || STRCMP($extiCh2Enable$, DISABLE) == 0 || STRCMP($extiCh3Enable$, DISABLE) == 0 || STRCMP($extiCh4Enable$, DISABLE) == 0 || \
-STRCMP($extiCh5Enable$, DISABLE) == 0 || STRCMP($extiCh6Enable$, DISABLE) == 0 || STRCMP($extiCh7Enable$, DISABLE) == 0 || STRCMP($extiCh8Enable$, DISABLE) == 0 || STRCMP($extiCh9Enable$, DISABLE) == 0 || \
-STRCMP($extiCh10Enable$, DISABLE) == 0 || STRCMP($extiCh11Enable$, DISABLE) == 0 || STRCMP($extiCh12Enable$, DISABLE) == 0 || STRCMP($extiCh13Enable$, DISABLE) == 0 || STRCMP($extiCh14Enable$, DISABLE) == 0 || STRCMP($extiCh15Enable$, DISABLE) == 0)
-#include "stm32f10x_gpio.h"
+#if (STRCMP($tim3IntEn$, 0) == 0)
 #include "misc.h"
 //PUT_A_NEW_LINE_HERE
 /***************************************************************************//**
  * Declare function prototype
 *******************************************************************************/
-#if(STRCMP($extiCh0Enable$, DISABLE) == 0)
-void EXTI0_IRQHandler(void);
+void TIM3_IRQHandler(void);
 #endif
-#if(STRCMP($extiCh1Enable$, DISABLE) == 0)
-void EXTI1_IRQHandler(void);
-#endif
-#if(STRCMP($extiCh2Enable$, DISABLE) == 0)
-void EXTI2_IRQHandler(void);
-#endif
-#if(STRCMP($extiCh3Enable$, DISABLE) == 0)
-void EXTI3_IRQHandler(void);
-#endif
-#if(STRCMP($extiCh4Enable$, DISABLE) == 0)
-void EXTI4_IRQHandler(void);
-#endif
-#if(STRCMP($extiCh5Enable$, DISABLE) == 0||STRCMP($extiCh6Enable$, DISABLE) == 0||STRCMP($extiCh7Enable$, DISABLE) == 0||STRCMP($extiCh8Enable$, DISABLE) == 0||STRCMP($extiCh9Enable$, DISABLE) == 0)
-void EXTI9_5_IRQHandler(void);
-#endif
-#if(STRCMP($extiCh10Enable$, DISABLE) == 0||STRCMP($extiCh11Enable$, DISABLE) == 0||STRCMP($extiCh12Enable$, DISABLE) == 0||STRCMP($extiCh13Enable$, DISABLE) == 0||STRCMP($extiCh14Enable$, DISABLE) == 0||STRCMP($extiCh15Enable$, DISABLE) == 0)
-void EXTI15_10_IRQHandler(void);
-#endif
-#endif
+
 //PUT_A_NEW_LINE_HERE
 /*************************************************************
- * EXTI Initialization
+ * TIM3 Initialization
 **************************************************************/
-void EXTI__Init()
+void TIM3_Init()
 {
-    #if (STRCMP($extiCh0Enable$, DISABLE) == 0 || STRCMP($extiCh1Enable$, DISABLE) == 0 || STRCMP($extiCh2Enable$, DISABLE) == 0 || STRCMP($extiCh3Enable$, DISABLE) == 0 || STRCMP($extiCh4Enable$, DISABLE) == 0 || \
-    STRCMP($extiCh5Enable$, DISABLE) == 0 || STRCMP($extiCh6Enable$, DISABLE) == 0 || STRCMP($extiCh7Enable$, DISABLE) == 0 || STRCMP($extiCh8Enable$, DISABLE) == 0 || STRCMP($extiCh9Enable$, DISABLE) == 0 || \
-    STRCMP($extiCh10Enable$, DISABLE) == 0 || STRCMP($extiCh11Enable$, DISABLE) == 0 || STRCMP($extiCh12Enable$, DISABLE) == 0 || STRCMP($extiCh13Enable$, DISABLE) == 0 || STRCMP($extiCh14Enable$, DISABLE) == 0 || STRCMP($extiCh15Enable$, DISABLE) == 0)
+	#if (STRCMP($tim3IntEn$, 0) == 0)
     NVIC_InitTypeDef NVIC_InitStructure;
 	#endif
 	
-    #if (STRCMP($extiCh0Enable$, DISABLE) == 0 || STRCMP($extiCh1Enable$, DISABLE) == 0 || STRCMP($extiCh2Enable$, DISABLE) == 0 || STRCMP($extiCh3Enable$, DISABLE) == 0 || STRCMP($extiCh4Enable$, DISABLE) == 0 || \
-    STRCMP($extiCh5Enable$, DISABLE) == 0 || STRCMP($extiCh6Enable$, DISABLE) == 0 || STRCMP($extiCh7Enable$, DISABLE) == 0 || STRCMP($extiCh8Enable$, DISABLE) == 0 || STRCMP($extiCh9Enable$, DISABLE) == 0 || \
-    STRCMP($extiCh10Enable$, DISABLE) == 0 || STRCMP($extiCh11Enable$, DISABLE) == 0 || STRCMP($extiCh12Enable$, DISABLE) == 0 || STRCMP($extiCh13Enable$, DISABLE) == 0 || STRCMP($extiCh14Enable$, DISABLE) == 0 || STRCMP($extiCh15Enable$, DISABLE) == 0)
-    EXTI_InitTypeDef EXTI_InitStructure;
+    TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable AFIO APB2PeriphClock
-    //
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+    #if ( (STRCMP($ch1En$, DISABLE) == 0 && STRCMP($ch1sel$, CAPTURE_ENABLE) == 0) || \
+	(STRCMP($ch2En$, DISABLE) == 0 && STRCMP($ch2sel$, CAPTURE_ENABLE) == 0) || \
+	(STRCMP($ch3En$, DISABLE) == 0 && STRCMP($ch3sel$, CAPTURE_ENABLE) == 0) || \
+	(STRCMP($ch4En$, DISABLE) == 0 && STRCMP($ch4sel$, CAPTURE_ENABLE) == 0) )
+    TIM_OCInitTypeDef  TIM_OCInitStructure;
+	#endif
 
-    #endif
+    #if ( (STRCMP($ch1En$, DISABLE) == 0 && STRCMP($ch1sel$, COMPARE_ENABLE) == 0) || \
+	(STRCMP($ch2En$, DISABLE) == 0 && STRCMP($ch2sel$, COMPARE_ENABLE) == 0) || \
+	(STRCMP($ch3En$, DISABLE) == 0 && STRCMP($ch3sel$, COMPARE_ENABLE) == 0) || \
+	(STRCMP($ch4En$, DISABLE) == 0 && STRCMP($ch4sel$, COMPARE_ENABLE) == 0) )	
+    TIM_ICInitTypeDef  TIM_ICInitStructure
+	#endif
 	
-    #if (STRCMP($extiCh0Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin0 to EXTI Line0
-    //
-    GPIO_EXTILineConfig($extiCh0LinePin$, GPIO_PinSource0);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line0;
-    EXTI_InitStructure.EXTI_Mode = $extiCh0Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh0IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh0Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin0 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh0OutputPin$, GPIO_PinSource0);
-    #endif
-	#if (STRCMP($extiCh0Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI0 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif
-    #endif
+    // Enable TIM3 clock
+    //	
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
-    #if (STRCMP($extiCh1Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin1 to EXTI Line1
-    //
-    GPIO_EXTILineConfig($extiCh1LinePin$, GPIO_PinSource1);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line1;
-    EXTI_InitStructure.EXTI_Mode = $extiCh1Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh1IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh1Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin1 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh1OutputPin$, GPIO_PinSource1);
-    #endif
-	#if (STRCMP($extiCh1Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI1 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh2Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin2 to EXTI Line2
-    //
-    GPIO_EXTILineConfig($extiCh2LinePin$, GPIO_PinSource2);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line2;
-    EXTI_InitStructure.EXTI_Mode = $extiCh2Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh2IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh2Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin2 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh2OutputPin$, GPIO_PinSource2);
-    #endif
-    #if (STRCMP($extiCh2Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI2 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh3Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin3 to EXTI Line3
-    //
-    GPIO_EXTILineConfig($extiCh3LinePin$, GPIO_PinSource3);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line3;
-    EXTI_InitStructure.EXTI_Mode = $extiCh3Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh3IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh3Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin3 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh3OutputPin$, GPIO_PinSource3);
-    #endif
-	#if (STRCMP($extiCh3Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI3 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh4Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin4 to EXTI Line4
-    //
-    GPIO_EXTILineConfig($extiCh4LinePin$, GPIO_PinSource4);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line4;
-    EXTI_InitStructure.EXTI_Mode = $extiCh4Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh4IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh4Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin4 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh4OutputPin$, GPIO_PinSource4);
-    #endif
-	#if (STRCMP($extiCh4Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI4 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh5Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin5 to EXTI Line5
-    //
-    GPIO_EXTILineConfig($extiCh5LinePin$, GPIO_PinSource5);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line5;
-    EXTI_InitStructure.EXTI_Mode = $extiCh5Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh5IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh5Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin5 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh5OutputPin$, GPIO_PinSource5);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh6Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin6 to EXTI Line6
-    //
-    GPIO_EXTILineConfig($extiCh6LinePin$, GPIO_PinSource6);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line6;
-    EXTI_InitStructure.EXTI_Mode = $extiCh6Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh6IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh6Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin6 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh6OutputPin$, GPIO_PinSource6);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh7Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin7 to EXTI Line7
-    //
-    GPIO_EXTILineConfig($extiCh7LinePin$, GPIO_PinSource7);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line7;
-    EXTI_InitStructure.EXTI_Mode = $extiCh7Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh7IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh7Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin7 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh7OutputPin$, GPIO_PinSource7);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh8Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin8 to EXTI Line8
-    //
-    GPIO_EXTILineConfig($extiCh8LinePin$, GPIO_PinSource8);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line8;
-    EXTI_InitStructure.EXTI_Mode = $extiCh8Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh8IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh8Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin8 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh8OutputPin$, GPIO_PinSource8);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh9Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Connect GPIOx Pin9 to EXTI Line9
-    //
-    GPIO_EXTILineConfig($extiCh9LinePin$, GPIO_PinSource9);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line9;
-    EXTI_InitStructure.EXTI_Mode = $extiCh9Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh9IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh9Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin9 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh9OutputPin$, GPIO_PinSource9);
-    #endif
-    #endif
-
-    #if (STRCMP($extiCh5Enable$, DISABLE) == 0||STRCMP($extiCh6Enable$, DISABLE) == 0||STRCMP($extiCh7Enable$, DISABLE) == 0||STRCMP($extiCh8Enable$, DISABLE) == 0||STRCMP($extiCh9Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable the EXTI9_5 Interrupt 
-    //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-    #endif	
+    // Initializes the TIM3 Time Base Unit
+    //	
+    TIM_TimeBaseStructure.TIM_Period = $tim3Period$;
+    TIM_TimeBaseStructure.TIM_Prescaler = $tim3Psclr$;
+    TIM_TimeBaseStructure.TIM_ClockDivision = $tim3ClkDiv$;
+    TIM_TimeBaseStructure.TIM_CounterMode = $tim3CntMode$;
+    TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);	
 	
-    #if (STRCMP($extiCh10Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if (STRCMP($tim3ARRMode$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin10 to EXTI Line10
-    //
-    GPIO_EXTILineConfig($extiCh10LinePin$, GPIO_PinSource10);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line10;
-    EXTI_InitStructure.EXTI_Mode = $extiCh10Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh10IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh10Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin10 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh10OutputPin$, GPIO_PinSource10);
-    #endif
-    #endif	
+    // Enables Preload register on ARR
+    //	
+    TIM_ARRPreloadConfig(TIM3, ENABLE);
+	#endif	
+
+    #if (STRCMP($ch1En$, DISABLE) == 0)
 	
-    #if (STRCMP($extiCh11Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if (STRCMP($ch1sel$, CAPTURE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin11 to EXTI Line11
-    //
-    GPIO_EXTILineConfig($extiCh11LinePin$, GPIO_PinSource11);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line11;
-    EXTI_InitStructure.EXTI_Mode = $extiCh11Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh11IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh11Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin11 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh11OutputPin$, GPIO_PinSource11);
-    #endif
-    #endif
+    // Initializes Output Compare Channel1 of the TIM3 
+    //	
+    TIM_OCInitStructure.TIM_OCMode = $oc1Mode$;
+    TIM_OCInitStructure.TIM_OutputState = $oc1State$;
+    TIM_OCInitStructure.TIM_Pulse = $oc1Pluse$;
+    TIM_OCInitStructure.TIM_OCPolarity = $oc1Polar$;
+    TIM_OC1Init(TIM3, &TIM_OCInitStructure);
 
-    #if (STRCMP($extiCh12Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if (STRCMP($oc1Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin12 to EXTI Line12
-    //
-    GPIO_EXTILineConfig($extiCh12LinePin$, GPIO_PinSource12);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line12;
-    EXTI_InitStructure.EXTI_Mode = $extiCh12Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh12IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh12Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin12 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh12OutputPin$, GPIO_PinSource12);
-    #endif
-    #endif
+    // Enables Preload register on CCR1
+    //	
+    TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
+	#endif
 
-    #if (STRCMP($extiCh13Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if (STRCMP($oc1Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin13 to EXTI Line13
-    //
-    GPIO_EXTILineConfig($extiCh13LinePin$, GPIO_PinSource13);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line13;
-    EXTI_InitStructure.EXTI_Mode = $extiCh13Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh13IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh13Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin13 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh13OutputPin$, GPIO_PinSource13);
-    #endif
-    #endif
+    // Clears or safeguards the OCREF1 signal on an external event
+    //	
+	TIM_ClearOC1Ref(TIM3, TIM_OCClear_Enable);  
+	#endif
 
-    #if (STRCMP($extiCh14Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if ( STRCMP($oc1FastEn$, DISABLE) == 0 && (STRCMP($oc1Mode$, TIM_OCMode_PWM1) == 1 || STRCMP($oc1Mode$, TIM_OCMode_PWM2) == 1) )
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin14 to EXTI Line14
-    //
-    GPIO_EXTILineConfig($extiCh14LinePin$, GPIO_PinSource14);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line14;
-    EXTI_InitStructure.EXTI_Mode = $extiCh14Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh14IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh14Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin14 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh14OutputPin$, GPIO_PinSource14);
-    #endif
-    #endif
+    // Configures the TIM3 Output Compare Channel1 Fast feature
+    //	
+	TIM_OC1FastConfig(TIM3, TIM_OCClear_Enable);  
+	#endif	
+	#endif	
 
-    #if (STRCMP($extiCh15Enable$, DISABLE) == 0)
-    //PUT_A_NEW_LINE_HERE
+    #if (STRCMP($ch1sel$, COMPARE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    // Connect GPIOx Pin15 to EXTI Line15
-    //
-    GPIO_EXTILineConfig($extiCh15LinePin$, GPIO_PinSource15);
-    EXTI_InitStructure.EXTI_Line = EXTI_Line15;
-    EXTI_InitStructure.EXTI_Mode = $extiCh15Mode$;
-    EXTI_InitStructure.EXTI_Trigger = $extiCh15IntTypeInit$;
-    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-    EXTI_Init(&EXTI_InitStructure);
-    #if (STRCMP($extiCh15Mode$, EXTI_Mode_Event) == 1)
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Selects GPIOx Pin15 used as Event output.
-    //
-    GPIO_EventOutputConfig($extiCh15OutputPin$, GPIO_PinSource15);
-    #endif
+    // Initializes Input Capture Channel1 of the TIM3 
+    //	
+	TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;                   
+	TIM_ICInitStructure.TIM_ICPolarity = $ic1Polar$;     
+	TIM_ICInitStructure.TIM_ICSelection = $ic1Sel$;
+	TIM_ICInitStructure.TIM_ICPrescaler = $ic1Psc$;
+	TIM_ICInitStructure.TIM_ICFilter = $ic1Filter$; 
+	TIM_ICInit(TIM3, TIM_ICInitStructure);
+	#endif
     #endif
 	
-    #if (STRCMP($extiCh10Enable$, DISABLE) == 0||STRCMP($extiCh11Enable$, DISABLE) == 0||STRCMP($extiCh12Enable$, DISABLE) == 0||STRCMP($extiCh13Enable$, DISABLE) == 0||STRCMP($extiCh14Enable$, DISABLE) == 0||STRCMP($extiCh15Enable$, DISABLE) == 0)
+    #if (STRCMP($ch2En$, DISABLE) == 0)
+	
+    #if (STRCMP($ch2sel$, CAPTURE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Output Compare Channel2 of the TIM3 
+    //	
+    TIM_OCInitStructure.TIM_OCMode = $oc2Mode$;
+    TIM_OCInitStructure.TIM_OutputState = $oc2State$;
+    TIM_OCInitStructure.TIM_Pulse = $oc2Pluse$;
+    TIM_OCInitStructure.TIM_OCPolarity = $oc2Polar$;
+    TIM_OC2Init(TIM3, &TIM_OCInitStructure);
+
+    #if (STRCMP($oc2Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Enables Preload register on CCR2
+    //	
+    TIM_OC2PreloadConfig(TIM3, TIM_OCPreload_Enable);
+	#endif
+
+    #if (STRCMP($oc2Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Clears or safeguards the OCREF2 signal on an external event
+    //	
+	TIM_ClearOC2Ref(TIM3, TIM_OCClear_Enable);  
+	#endif
+
+    #if ( STRCMP($oc2FastEn$, DISABLE) == 0 && (STRCMP($oc2Mode$, TIM_OCMode_PWM1) == 1 || STRCMP($oc2Mode$, TIM_OCMode_PWM2) == 1) )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Output Compare Channel2 Fast feature
+    //	
+	TIM_OC2FastConfig(TIM3, TIM_OCClear_Enable);  
+	#endif	
+	#endif	
+
+    #if (STRCMP($ch2sel$, COMPARE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Input Capture Channel2 of the TIM3
+    //	
+	TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;                   
+	TIM_ICInitStructure.TIM_ICPolarity = $ic2Polar$;     
+	TIM_ICInitStructure.TIM_ICSelection = $ic2Sel$;
+	TIM_ICInitStructure.TIM_ICPrescaler = $ic2Psc$;
+	TIM_ICInitStructure.TIM_ICFilter = $ic2Filter$; 
+	TIM_ICInit(TIM3, TIM_ICInitStructure);
+	#endif
+    #endif
+
+
+    #if (STRCMP($ch3En$, DISABLE) == 0)
+	
+    #if (STRCMP($ch3sel$, CAPTURE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Output Compare Channel3 of the TIM3 
+    //	
+    TIM_OCInitStructure.TIM_OCMode = $oc3Mode$;
+    TIM_OCInitStructure.TIM_OutputState = $oc3State$;
+    TIM_OCInitStructure.TIM_Pulse = $oc3Pluse$;
+    TIM_OCInitStructure.TIM_OCPolarity = $oc3Polar$;
+    TIM_OC3Init(TIM3, &TIM_OCInitStructure);
+
+    #if (STRCMP($oc3Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Enables Preload register on CCR3
+    //	
+    TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);
+	#endif
+
+    #if (STRCMP($oc3Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Clears or safeguards the OCREF3 signal on an external event
+    //	
+	TIM_ClearOC3Ref(TIM3, TIM_OCClear_Enable);  
+	#endif
+
+    #if ( STRCMP($oc3FastEn$, DISABLE) == 0 && (STRCMP($oc3Mode$, TIM_OCMode_PWM1) == 1 || STRCMP($oc3Mode$, TIM_OCMode_PWM2) == 1) )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Output Compare Channel3 Fast feature
+    //	
+	TIM_OC3FastConfig(TIM3, TIM_OCClear_Enable);  
+	#endif	
+	#endif	
+
+    #if (STRCMP($ch3sel$, COMPARE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Input Capture Channel3 of the TIM3
+    //	
+	TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;                   
+	TIM_ICInitStructure.TIM_ICPolarity = $ic3Polar$;     
+	TIM_ICInitStructure.TIM_ICSelection = $ic3Sel$;
+	TIM_ICInitStructure.TIM_ICPrescaler = $ic3Psc$;
+	TIM_ICInitStructure.TIM_ICFilter = $ic3Filter$; 
+	TIM_ICInit(TIM3, TIM_ICInitStructure);
+	#endif
+    #endif
+
+
+    #if (STRCMP($ch4En$, DISABLE) == 0)
+	
+    #if (STRCMP($ch4sel$, CAPTURE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Output Compare Channel4 of the TIM3 
+    //	
+    TIM_OCInitStructure.TIM_OCMode = $oc4Mode$;
+    TIM_OCInitStructure.TIM_OutputState = $oc4State$;
+    TIM_OCInitStructure.TIM_Pulse = $oc4Pluse$;
+    TIM_OCInitStructure.TIM_OCPolarity = $oc4Polar$;
+    TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+
+    #if (STRCMP($oc4Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Enables Preload register on CCR4
+    //	
+    TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Enable);
+	#endif
+
+    #if (STRCMP($oc4Preload$, DISABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Clears or safeguards the OCREF4 signal on an external event
+    //	
+	TIM_ClearOC4Ref(TIM3, TIM_OCClear_Enable);  
+	#endif
+
+    #if ( STRCMP($oc4FastEn$, DISABLE) == 0 && (STRCMP($oc4Mode$, TIM_OCMode_PWM1) == 1 || STRCMP($oc4Mode$, TIM_OCMode_PWM2) == 1) )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Output Compare Channel4 Fast feature
+    //	
+	TIM_OC4FastConfig(TIM3, TIM_OCClear_Enable);  
+	#endif	
+	#endif	
+
+    #if (STRCMP($ch4sel$, COMPARE_ENABLE) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Initializes Input Capture Channel4 of the TIM3
+    //	
+	TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;                   
+	TIM_ICInitStructure.TIM_ICPolarity = $ic4Polar$;     
+	TIM_ICInitStructure.TIM_ICSelection = $ic4Sel$;
+	TIM_ICInitStructure.TIM_ICPrescaler = $ic4Psc$;
+	TIM_ICInitStructure.TIM_ICFilter = $ic4Filter$; 
+	TIM_ICInit(TIM3, TIM_ICInitStructure);
+	#endif
+    #endif
+
     //PUT_A_NEW_LINE_HERE
     //
-    // Enable the EXTI15_10 Interrupt 
+    // Enables TIM3 peripheral
+    //	
+    TIM_Cmd(TIM3, ENABLE);
+	
+    #if (STRCMP($masterEn$, DISABLE) == 0 && STRCMP($masterTRGOSrc$, None) == 0)
+	//PUT_A_NEW_LINE_HERE
     //
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;
+    // Selects the TIM3 Trigger Output Mode
+    //	
+    TIM_SelectOutputTrigger(TIM3, $masterTRGOSrc$);
+	#endif	
+
+    #if (STRCMP($slaveEn$, DISABLE) == 0 )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Sets the TIM3 Master/Slave Mode
+    //
+    TIM_SelectMasterSlaveMode(TIM3, TIM_MasterSlaveMode_Enable);	
+	#endif
+	
+    #if (STRCMP($slaveEn$, DISABLE) == 0 && STRCMP($slaveModeSet$, Disable(Internal Clock)) == 0)
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Selects the TIM3 Slave Mode
+    //	
+    TIM_SelectSlaveMode(TIM3, $slaveModeSet$);
+	#endif
+	
+    #if (STRCMP($slaveEn$, DISABLE) == 0 )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Selects the TIM3's One Pulse Mode
+    //
+    TIM_SelectOnePulseMode(TIM3, TIM_OPMode_Single);	
+	#endif
+	
+    #if (STRCMP($hallSensorEn$, DISABLE) == 0 )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Enables the TIM3's Hall sensor interface
+    //
+    TIM_SelectHallSensor(TIM3, ENABLE);	
+	#endif
+	
+    #if (STRCMP($encoderEn$, DISABLE) == 0 )
+	//PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Encoder Interface
+    //
+    TIM_EncoderInterfaceConfig(TIM3, $extiCh1OutputPin$,
+                                $EncodeIC1Polar$, $EncodeIC2Polar$);
+	#endif
+		
+	
+    #if (STRCMP($interClkEn$, DISABLE) == 0 )
+
+    #if (STRCMP($interTrigr$, None) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Internal Trigger as External Clock
+    //
+    TIM_ITRxExternalClockConfig(TIM3, $interTrigr$);
+	#endif
+
+    #if (STRCMP($timxTrigr$, None) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Configures the TIM3 Trigger as External Clock
+    //
+    TIM_TIxExternalClockConfig(TIM3, $timxTrigr$, TIM_ICPolarity_Rising, 0x0);
+	#endif
+	
+    #if (STRCMP($extTrigr$, None) == 0 )
+    #if (STRCMP($extTrigr$, ExternalTriggerMode1) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Configures the External clock Mode1
+    //
+    TIM_ETRClockMode1Config(TIM3, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0x0);
+	#endif
+    #if (STRCMP($extTrigr$, ExternalTriggerMode2) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Configures the External clock Mode2
+    //
+    TIM_ETRClockMode1Config(TIM3, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0x0);
+	#endif
+	#endif
+	#endif
+	
+    #if (STRCMP($evtUpdate$, DISABLE) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enables the TIM3 Update event
+    //
+    TIM_UpdateRequestConfig(TIM3, $updateRqstSrc$);
+    TIM_UpdateDisableConfig(TIM3, DISABLE);
+	#endif
+
+    #if (STRCMP($tim3IntEn$, 0) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enables TIM3 interrupts
+    //
+    TIM_ITConfig(TIM3, $tim3IntEn$, ENABLE);
+    NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-    #endif  
-
-
+	#endif
+	
+    #if (STRCMP($tim3dmaEn$, DISABLE) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enables the TIM3's DMA Requests
+    //
+    TIM_DMAConfig(TIM3, $dmaBaseAddr$, $dmaBurstLen$);
+    #if (STRCMP($tim3dmaRqstSrc$, 0) == 0 )
+    TIM_DMACmd(TIM3, $tim3dmaRqstSrc$, ENABLE);
+	#endif
+    TIM_SelectCCDMA(TIM3, ENABLE);	
+	#endif
 }
 //PUT_A_NEW_LINE_HERE
-#if (STRCMP($extiCh0Enable$, DISABLE) == 0)
-/* EXTI0 Interrupt function */
-void EXTI0_IRQHandler(void)
+#if (STRCMP($tim3IntEn$, 0) == 0)
+/* IIM3 Interrupt function */
+void TIM3_IRQHandler(void)
 {
     //
     // add your code 
     //   
 }
-#endif
-
-#if (STRCMP($extiCh1Enable$, DISABLE) == 0)
-/* EXTI1 Interrupt function */
-void EXTI1_IRQHandler(void)
-{
-    //
-    // add your code 
-    //     
-}
-#endif
-
-#if (STRCMP($extiCh2Enable$, DISABLE) == 0)
-/* EXTI2 Interrupt function */
-void EXTI2_IRQHandler(void)
-{
-    //
-    // add your code 
-    //      
-}
-#endif
-
-#if (STRCMP($extiCh3Enable$, DISABLE) == 0)
-/* EXTI3 Interrupt function */
-void EXTI3_IRQHandler(void)
-{
-    //
-    // add your code 
-    //     
-}
-#endif
-
-#if (STRCMP($extiCh4Enable$, DISABLE) == 0)
-/* EXTI4 Interrupt function */
-void EXTI4_IRQHandler(void)
-{
-    //
-    // add your code 
-    //    
-}
-#endif
-
-#if (STRCMP($extiCh5Enable$, DISABLE) == 0||STRCMP($extiCh6Enable$, DISABLE) == 0||STRCMP($extiCh7Enable$, DISABLE) == 0||STRCMP($extiCh8Enable$, DISABLE) == 0||STRCMP($extiCh9Enable$, DISABLE) == 0)
-/* EXTI9_5 Interrupt function */
-void EXTI9_5_IRQHandler(void)
-{
-    //
-    // add your code 
-    // 
-}
-#endif
-
-#if (STRCMP($extiCh10Enable$, DISABLE) == 0||STRCMP($extiCh11Enable$, DISABLE) == 0||STRCMP($extiCh12Enable$, DISABLE) == 0||STRCMP($extiCh13Enable$, DISABLE) == 0||STRCMP($extiCh14Enable$, DISABLE) == 0||STRCMP($extiCh15Enable$, DISABLE) == 0)
-/* EXTI15_10 Interrupt function */
-void EXTI15_10_IRQHandler(void)
-{
-    //
-    // add your code 
-    //  
-} 
 #endif
 //PUT_A_NEW_LINE_HERE

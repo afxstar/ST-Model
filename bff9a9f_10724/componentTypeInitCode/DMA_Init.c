@@ -733,6 +733,11 @@ void DMA__Init()
     #if (STRCMP($dma1ch1En$, DISABLE) == 0)
     //PUT_A_NEW_LINE_HERE
     //
+    // Enable DMA1 clock
+    //
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
+    //PUT_A_NEW_LINE_HERE
+    //
     // DMA1 Channel1 Configuration
     //
     DMA_InitStructure.DMA_PeripheralBaseAddr = (u32) $dma1ch1PerphAddr$;
