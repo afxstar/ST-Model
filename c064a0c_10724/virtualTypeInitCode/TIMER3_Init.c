@@ -1,0 +1,51 @@
+/******************************<<config wizard begin>>*************************
+<group=pin>Pin used
+      <list>TIM3_CH1
+           <DISABLE=>Disable
+           <TIM3_CH1=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH2
+           <DISABLE=>Disable
+           <TIM3_CH2=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH3
+           <DISABLE=>Disable
+           <TIM3_CH3=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH4
+           <DISABLE=>Disable
+           <TIM3_CH4=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH1
+           <DISABLE=>Disable
+           <TIM3_CH1=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH2
+           <DISABLE=>Disable
+           <TIM3_CH2=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH3
+           <DISABLE=>Disable
+           <TIM3_CH3=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH4
+           <DISABLE=>Disable
+           <TIM3_CH4=>Enable
+           <code>$NOCODE$
+      <list>TIM3_ETR
+           <DISABLE=>Disable
+           <TIM3_ETR=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH1
+           <DISABLE=>Disable
+           <TIM3_CH1=>Enable
+           <code>$NOCODE$
+      <list>TIM3_CH2
+           <DISABLE=>Disable
+           <TIM3_CH2=>Enable
+           <code>$NOCODE$
+</group>
+******************************<<config wizard end>>***************************/
+void TIMER3_Init()
+{
+}
