@@ -1,23 +1,19 @@
 /******************************<<config wizard begin>>*************************
 <group=pin>Pin used
-      <list>TIM5_CH1
+      <list>I2C2_SCL
            <DISABLE=>Disable
-           <TIM5_CH1=>Enable
+           <I2C2_SCL=>Enable
            <code>$NOCODE$
-      <list>TIM5_CH2
+      <list>I2C2_SDA
            <DISABLE=>Disable
-           <TIM5_CH2=>Enable
+           <I2C2_SDA=>Enable
            <code>$NOCODE$
-      <list>TIM5_CH3
+      <list>I2C2_SMBA
            <DISABLE=>Disable
-           <TIM5_CH3=>Enable
-           <code>$NOCODE$
-      <list>TIM5_CH4
-           <DISABLE=>Disable
-           <TIM5_CH4=>Enable
+           <I2C2_SMBA=>Enable
            <code>$NOCODE$
 </group>
 ******************************<<config wizard end>>***************************/
-void TIMER5_Init()
+void I2C2_Init()
 {
 }

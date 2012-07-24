@@ -1,39 +1,39 @@
 /******************************<<config wizard begin>>*************************
 <group=pin>Pin used
-      <list>ADC123_IN10
+      <list>USART3_TX_0
            <DISABLE=>Disable
-           <ADC123_IN10=>Enable
+           <USART3_TX_0=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN11
+      <list>USART3_RX_0
            <DISABLE=>Disable
-           <ADC123_IN11=>Enable
+           <USART3_RX_0=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN12
+      <list>USART3_CK_0
            <DISABLE=>Disable
-           <ADC123_IN12=>Enable
+           <USART3_CK_0=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN13
+      <list>USART3_CTS
            <DISABLE=>Disable
-           <ADC123_IN13=>Enable
+           <USART3_CTS=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN0
+      <list>USART3_RTS
            <DISABLE=>Disable
-           <ADC123_IN0=>Enable
+           <USART3_RTS=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN1
+      <list>USART3_TX_1
            <DISABLE=>Disable
-           <ADC123_IN1=>Enable
+           <USART3_TX_1=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN2
+      <list>USART3_RX_1
            <DISABLE=>Disable
-           <ADC123_IN2=>Enable
+           <USART3_RX_1=>Enable
            <code>$NOCODE$
-      <list>ADC123_IN3
+      <list>USART3_CK_1
            <DISABLE=>Disable
-           <ADC123_IN3=>Enable
+           <USART3_CK_1=>Enable
            <code>$NOCODE$
 </group>
 ******************************<<config wizard end>>***************************/
-void ADC123_Init()
+void USART3_Init()
 {
 }

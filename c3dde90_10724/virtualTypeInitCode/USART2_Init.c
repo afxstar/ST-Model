@@ -1,23 +1,27 @@
 /******************************<<config wizard begin>>*************************
 <group=pin>Pin used
-      <list>TIM4_CH1
+      <list>USART2_CTS
            <DISABLE=>Disable
-           <TIM4_CH1=>Enable
+           <USART2_CTS=>Enable
            <code>$NOCODE$
-      <list>TIM4_CH2
+      <list>USART2_RTS
            <DISABLE=>Disable
-           <TIM4_CH2=>Enable
+           <USART2_RTS=>Enable
            <code>$NOCODE$
-      <list>TIM4_CH3
+      <list>USART2_TX
            <DISABLE=>Disable
-           <TIM4_CH3=>Enable
+           <USART2_TX=>Enable
            <code>$NOCODE$
-      <list>TIM4_CH4
+      <list>USART2_RX
            <DISABLE=>Disable
-           <TIM4_CH4=>Enable
+           <USART2_RX=>Enable
+           <code>$NOCODE$
+      <list>USART2_CK
+           <DISABLE=>Disable
+           <USART2_CK=>Enable
            <code>$NOCODE$
 </group>
 ******************************<<config wizard end>>***************************/
-void TIMER4_Init()
+void USART2_Init()
 {
 }
