@@ -91,22 +91,6 @@
     <code>$apb2ClkSrc$
 </group>
 
-<group>USB clock config
-    <list>USB clock source
-        <RCC_USBCLKSource_PLLCLK_1Div5=>PLL clock / 1.5
-        <RCC_USBCLKSource_PLLCLK_Div1=>PLL clock
-    <code>$usbClkSrc$
-</group>
-
-<group>ADC clock config
-    <list>ADC clock source
-        <RCC_PCLK2_Div2=>PLL clock / 2
-        <RCC_PCLK2_Div4=>PLL clock / 4
-        <RCC_PCLK2_Div6=>PLL clock / 6
-        <RCC_PCLK2_Div8=>PLL clock / 8
-    <code>$adcClkSrc$
-</group>
-
 <group>LSE clock set
     <list>LSE
         <RCC_LSE_OFF=>OFF
@@ -120,18 +104,6 @@
         <DISABLE=>Disable
         <ENABLE=>Enable
     <code>$lsiClkEn$
-</group>
-
-<group>RTC clock config
-    <list>RTC
-        <DISABLE=>Disable
-        <ENABLE=>Enable
-    <code>$rtcClkEn$
-    <list>RTC clock source
-        <RCC_RTCCLKSource_LSE=>LSE
-        <RCC_RTCCLKSource_LSI=>LSI
-        <RCC_RTCCLKSource_HSE_Div128=>HSE / 128
-    <code>$lsiClkSrc$
 </group>
 
 <group=or>Clock Interrupt set
@@ -151,318 +123,6 @@
         <0=>Disable
         <RCC_IT_LSERDY=>Enable
     <code>$clkIntEn$  
-</group>
-
-
-<group=or>AHB peripheral config
-    <list>DMA1
-        <0=>Disable
-        <RCC_AHBPeriph_DMA1=>Enable
-    <list>DMA2
-        <0=>Disable
-        <RCC_AHBPeriph_DMA2=>Enable
-    <list>SRAM
-        <0=>Disable
-        <RCC_AHBPeriph_SRAM=>Enable
-    <list>FLITF
-        <0=>Disable
-        <RCC_AHBPeriph_FLITF=>Enable
-    <list>CRC
-        <0=>Disable
-        <RCC_AHBPeriph_CRC=>Enable
-    <list>FSMC
-        <0=>Disable
-        <RCC_AHBPeriph_FSMC=>Enable
-    <list>SDIO
-        <0=>Disable
-        <RCC_AHBPeriph_SDIO=>Enable
-    <code>$ahbClkEn$
-</group>
-
-<group=or>APB1 peripheral config
-    <list>TIM2
-        <0=>Disable
-        <RCC_APB1Periph_TIM2=>Enable
-    <list>TIM3
-        <0=>Disable
-        <RCC_APB1Periph_TIM3=>Enable
-    <list>TIM4
-        <0=>Disable
-        <RCC_APB1Periph_TIM4=>Enable
-    <list>TIM5
-        <0=>Disable
-        <RCC_APB1Periph_TIM5=>Enable
-    <list>TIM6
-        <0=>Disable
-        <RCC_APB1Periph_TIM6=>Enable
-    <list>TIM7
-        <0=>Disable
-        <RCC_APB1Periph_TIM7=>Enable
-    <list>WWDG
-        <0=>Disable
-        <RCC_APB1Periph_WWDG=>Enable
-    <list>SPI2
-        <0=>Disable
-        <RCC_APB1Periph_SPI2=>Enable
-    <list>SPI3
-        <0=>Disable
-        <RCC_APB1Periph_SPI3=>Enable
-    <list>USART2
-        <0=>Disable
-        <RCC_APB1Periph_USART2=>Enable
-    <list>USART3
-        <0=>Disable
-        <RCC_APB1Periph_USART3=>Enable
-    <list>USART4
-        <0=>Disable
-        <RCC_APB1Periph_USART4=>Enable
-    <list>USART5
-        <0=>Disable
-        <RCC_APB1Periph_USART5=>Enable
-    <list>I2C1
-        <0=>Disable
-        <RCC_APB1Periph_I2C1=>Enable
-    <list>I2C2
-        <0=>Disable
-        <RCC_APB1Periph_I2C2=>Enable
-    <list>USB
-        <0=>Disable
-        <RCC_APB1Periph_USB=>Enable
-    <list>CAN1
-        <0=>Disable
-        <RCC_APB1Periph_CAN1=>Enable
-    <list>BKP
-        <0=>Disable
-        <RCC_APB1Periph_BKP=>Enable
-    <list>PWR
-        <0=>Disable
-        <RCC_APB1Periph_PWR=>Enable
-    <list>DAC
-        <0=>Disable
-        <RCC_APB1Periph_DAC=>Enable
-    <list>CEC
-        <0=>Disable
-        <RCC_APB1Periph_CEC=>Enable
-    <list>TIM12
-        <0=>Disable
-        <RCC_APB1Periph_TIM12=>Enable
-    <list>TIM13
-        <0=>Disable
-        <RCC_APB1Periph_TIM13=>Enable
-    <list>TIM14
-        <0=>Disable
-        <RCC_APB1Periph_TIM14=>Enable
-    <code>$apb1ClkEn$	
-</group>
-
-<group=or>APB2 peripheral config
-    <list>AFIO
-        <0=>Disable
-        <RCC_APB2Periph_AFIO=>Enable
-    <list>GPIOA
-        <0=>Disable
-        <RCC_APB2Periph_GPIOA=>Enable
-    <list>GPIOB
-        <0=>Disable
-        <RCC_APB2Periph_GPIOB=>Enable
-    <list>GPIOC
-        <0=>Disable
-        <RCC_APB2Periph_GPIOC=>Enable
-    <list>GPIOD
-        <0=>Disable
-        <RCC_APB2Periph_GPIOD=>Enable
-    <list>GPIOE
-        <0=>Disable
-        <RCC_APB2Periph_GPIOE=>Enable
-    <list>GPIOF
-        <0=>Disable
-        <RCC_APB2Periph_GPIOF=>Enable
-    <list>GPIOG
-        <0=>Disable
-        <RCC_APB2Periph_GPIOG=>Enabl
-    <list>ADC1
-        <0=>Disable
-        <RCC_APB2Periph_ADC1=>Enable
-    <list>ADC2
-        <0=>Disable
-        <RCC_APB2Periph_ADC2=>Enable
-    <list>TIM1
-        <0=>Disable
-        <RCC_APB2Periph_TIM1=>Enable
-    <list>SPI1
-        <0=>Disable
-        <RCC_APB2Periph_SPI1=>Enable
-    <list>TIM8
-        <0=>Disable
-        <RCC_APB2Periph_TIM8=>Enable
-    <list>USART1
-        <0=>Disable
-        <RCC_APB2Periph_USART1=>Enable
-    <list>ADC3
-        <0=>Disable
-        <RCC_APB2Periph_ADC3=>Enable
-    <list>TIM15
-        <0=>Disable
-        <RCC_APB2Periph_TIM15=>Enable
-    <list>TIM16
-        <0=>Disable
-        <RCC_APB2Periph_TIM16=>Enable
-    <list>TIM17
-        <0=>Disable
-        <RCC_APB2Periph_TIM17=>Enable
-    <list>TIM9
-        <0=>Disable
-        <RCC_APB2Periph_TIM9=>Enable
-    <list>TIM10
-        <0=>Disable
-        <RCC_APB2Periph_TIM10=>Enable
-    <list>TIM11
-        <0=>Disable
-        <RCC_APB2Periph_TIM11=>Enable
-    <code>$apb2ClkEn$
-</group>
-
-<group=or>APB1 peripheral reset
-    <list>TIM2
-        <0=>Disable
-        <RCC_APB1Periph_TIM2=>Enable
-    <list>TIM3
-        <0=>Disable
-        <RCC_APB1Periph_TIM3=>Enable
-    <list>TIM4
-        <0=>Disable
-        <RCC_APB1Periph_TIM4=>Enable
-    <list>TIM5
-        <0=>Disable
-        <RCC_APB1Periph_TIM5=>Enable
-    <list>TIM6
-        <0=>Disable
-        <RCC_APB1Periph_TIM6=>Enable
-    <list>TIM7
-        <0=>Disable
-        <RCC_APB1Periph_TIM7=>Enable
-    <list>WWDG
-        <0=>Disable
-        <RCC_APB1Periph_WWDG=>Enable
-    <list>SPI2
-        <0=>Disable
-        <RCC_APB1Periph_SPI2=>Enable
-    <list>SPI3
-        <0=>Disable
-        <RCC_APB1Periph_SPI3=>Enable
-    <list>USART2
-        <0=>Disable
-        <RCC_APB1Periph_USART2=>Enable
-    <list>USART3
-        <0=>Disable
-        <RCC_APB1Periph_USART3=>Enable
-    <list>USART4
-        <0=>Disable
-        <RCC_APB1Periph_USART4=>Enable
-    <list>USART5
-        <0=>Disable
-        <RCC_APB1Periph_USART5=>Enable
-    <list>I2C1
-        <0=>Disable
-        <RCC_APB1Periph_I2C1=>Enable
-    <list>I2C2
-        <0=>Disable
-        <RCC_APB1Periph_I2C2=>Enable
-    <list>USB
-        <0=>Disable
-        <RCC_APB1Periph_USB=>Enable
-    <list>CAN1
-        <0=>Disable
-        <RCC_APB1Periph_CAN1=>Enable
-    <list>BKP
-        <0=>Disable
-        <RCC_APB1Periph_BKP=>Enable
-    <list>PWR
-        <0=>Disable
-        <RCC_APB1Periph_PWR=>Enable
-    <list>DAC
-        <0=>Disable
-        <RCC_APB1Periph_DAC=>Enable
-    <list>CEC
-        <0=>Disable
-        <RCC_APB1Periph_CEC=>Enable
-    <list>TIM12
-        <0=>Disable
-        <RCC_APB1Periph_TIM12=>Enable
-    <list>TIM13
-        <0=>Disable
-        <RCC_APB1Periph_TIM13=>Enable
-    <list>TIM14
-        <0=>Disable
-        <RCC_APB1Periph_TIM14=>Enable
-    <code>$apb1ClkResetEn$	
-</group>
-
-<group=or>APB2 peripheral reset
-    <list>AFIO
-        <0=>Disable
-        <RCC_APB2Periph_AFIO=>Enable
-    <list>GPIOA
-        <0=>Disable
-        <RCC_APB2Periph_GPIOA=>Enable
-    <list>GPIOB
-        <0=>Disable
-        <RCC_APB2Periph_GPIOB=>Enable
-    <list>GPIOC
-        <0=>Disable
-        <RCC_APB2Periph_GPIOC=>Enable
-    <list>GPIOD
-        <0=>Disable
-        <RCC_APB2Periph_GPIOD=>Enable
-    <list>GPIOE
-        <0=>Disable
-        <RCC_APB2Periph_GPIOE=>Enable
-    <list>GPIOF
-        <0=>Disable
-        <RCC_APB2Periph_GPIOF=>Enable
-    <list>GPIOG
-        <0=>Disable
-        <RCC_APB2Periph_GPIOG=>Enable
-    <list>ADC1
-        <0=>Disable
-        <RCC_APB2Periph_ADC1=>Enable
-    <list>ADC2
-        <0=>Disable
-        <RCC_APB2Periph_ADC2=>Enable
-    <list>TIM1
-        <0=>Disable
-        <RCC_APB2Periph_TIM1=>Enable
-    <list>SPI1
-        <0=>Disable
-        <RCC_APB2Periph_SPI1=>Enable
-    <list>TIM8
-        <0=>Disable
-        <RCC_APB2Periph_TIM8=>Enable
-    <list>USART1
-        <0=>Disable
-        <RCC_APB2Periph_USART1=>Enable
-    <list>ADC3
-        <0=>Disable
-        <RCC_APB2Periph_ADC3=>Enable
-    <list>TIM15
-        <0=>Disable
-        <RCC_APB2Periph_TIM15=>Enable
-    <list>TIM16
-        <0=>Disable
-        <RCC_APB2Periph_TIM16=>Enable
-    <list>TIM17
-        <0=>Disable
-        <RCC_APB2Periph_TIM17=>Enable
-    <list>TIM9
-        <0=>Disable
-        <RCC_APB2Periph_TIM9=>Enable
-    <list>TIM10
-        <0=>Disable
-        <RCC_APB2Periph_TIM10=>Enable
-    <list>TIM11
-        <0=>Disable
-        <RCC_APB2Periph_TIM11=>Enable
-    <code>$apb2ClkResetEn$
 </group>
 
 <group>Backup domain config
@@ -522,19 +182,7 @@
     <action>AHB clock config = Disable
     <action>APB1 clock config = Disable
     <action>APB2 clock config = Disable
-    <action>AHB peripheral config = Disable
-    <action>APB1 peripheral config = Disable
-    <action>APB2 peripheral config = Disable
-    <action>APB1 peripheral reset = Disable
-    <action>APB2 peripheral reset = Disable
 	<action>MCO config = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>PLL set->PLL clock = Disable
-    <action>USB clock config = Disable
-    <action>ADC clock config = Disable
 </dep>
 
 <dep>
@@ -542,13 +190,6 @@
     <trigger>Clock source set->HSE(4-16MHz) = OFF
     <trigger>LSE clock set->LSE = OFF
     <trigger>LSI clock set->LSI = Disable
-    <action>RTC clock config = Disable
-</dep>
-
-<dep>
-    <type>state
-    <trigger>RTC clock config->RTC = Disable
-    <action>RTC clock config->RTC clock source = Disable
 </dep>
 
 <dep>
@@ -670,18 +311,6 @@ void RCC_Init()
     // Select APB2 clock Source
     //
     RCC_PCLK2Config($apb1ClkSrc$);	
-	
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Select USB clock Source
-    //
-    RCC_USBCLKConfig($usbClkSrc$);
-    
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Select ADC clock Source
-    //
-    RCC_ADCCLKConfig($adcClkSrc$);
 	#endif
 
     #if (STRCMP($lseClkCfg$, RCC_LSE_OFF) == 0)
@@ -700,16 +329,6 @@ void RCC_Init()
     RCC_LSICmd($lsiClkEn$);
     #endif
 	
-    #if ( STRCMP($rtcClkEn$, DISABLE) == 0 && ( STRCMP($lsiClkEn$, DISABLE) == 0 || \
-	STRCMP($lseClkCfg$, RCC_LSE_OFF) == 0 || STRCMP($hseClkCfg$, RCC_HSE_OFF) == 0 ) )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Select RTC clock Source and Enable RTC
-    //
-    RCC_RTCCLKConfig($lsiClkSrc$);
-    RCC_RTCCLKCmd(ENABLE);
-    #endif
-	
     #if (STRCMP($clkIntEn$, 0) == 0)
     //PUT_A_NEW_LINE_HERE
     //
@@ -721,46 +340,6 @@ void RCC_Init()
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-    #endif
-	
-    #if ( STRCMP($ahbClkEn$, 0) == 0 )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // AHB peripheral clock config
-    //
-    RCC_AHBPeriphClockCmd($ahbClkEn$, ENABLE);
-    #endif
-	
-    #if ( STRCMP($apb1ClkEn$, 0) == 0 )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // APB1 peripheral clock config
-    //
-    RCC_APB1PeriphClockCmd($apb1ClkEn$, ENABLE);
-    #endif
-	
-    #if ( STRCMP($apb2ClkEn$, 0) == 0 )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // APB2 peripheral clock config
-    //
-    RCC_APB2PeriphClockCmd($apb2ClkEn$, ENABLE);
-    #endif
-
-    #if ( STRCMP($apb1ClkResetEn$, 0) == 0 )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // APB1 peripheral clock reset
-    //
-    RCC_APB1PeriphResetCmd($apb1ClkResetEn$, ENABLE);
-    #endif
-	
-    #if ( STRCMP($apb2ClkResetEn$, 0) == 0 )
-    //PUT_A_NEW_LINE_HERE
-    //
-    // APB2 peripheral clock reset
-    //
-    RCC_APB2PeriphResetCmd($apb2ClkResetEn$, ENABLE);
     #endif
 
     #if ( STRCMP($backupClkResetEn$, DISABLE) == 0 )

@@ -5,70 +5,38 @@
     <code>$rtc$
 </group>
 
-<group>RTC set
-    <list>LSI clock
-        <ENABLE=>Enable
-        <DISABLE=>Disable
-    <code>$lsiClkEnable$
-    <list>LSE clock
-		<DISABLE=>Disable
-		<ENABLE=>Enable
-    <code>$lseClkEnable$
-    <list>HSE_Div128 clock
-		<DISABLE=>Disable
-		<ENABLE=>Enable
-    <code>$hsediv128ClkEnable$
-    <list>Clock source
+<group>RTC Clock Set
+    <list>Clock Source Select
         <RCC_RTCCLKSource_LSI=>Low speed internal clock
         <RCC_RTCCLKSource_LSE=>Low speed external clock
 		<RCC_RTCCLKSource_HSE_Div128=>HSE clock divided by 128
     <code>$rtcClkSrc$
-    <list>Prescaler
-        <RTC_RPRE_1=>CK_SECOND = CK_RTC
-        <RTC_RPRE_2=>CK_SECOND = CK_RTC / 2
-        <RTC_RPRE_4=>CK_SECOND = CK_RTC / 4
-        <RTC_RPRE_8=>CK_SECOND = CK_RTC / 8
-        <RTC_RPRE_16=>CK_SECOND = CK_RTC / 16
-        <RTC_RPRE_32=>CK_SECOND = CK_RTC / 32
-        <RTC_RPRE_64=>CK_SECOND = CK_RTC / 64
-        <RTC_RPRE_128=>CK_SECOND = CK_RTC / 128
-        <RTC_RPRE_256=>CK_SECOND = CK_RTC / 256
-        <RTC_RPRE_512=>CK_SECOND = CK_RTC / 512
-        <RTC_RPRE_1024=>CK_SECOND = CK_RTC / 1024
-        <RTC_RPRE_2048=>CK_SECOND = CK_RTC / 2048
-        <RTC_RPRE_4096=>CK_SECOND = CK_RTC / 4096
-        <RTC_RPRE_8192=>CK_SECOND = CK_RTC / 8192
-        <RTC_RPRE_16384=>CK_SECOND = CK_RTC / 16384
-        <RTC_RPRE_32768=>CK_SECOND = CK_RTC / 32768
-		<RTC_RPRE_65536=>CK_SECOND = CK_RTC / 65536
-		<RTC_RPRE_131072=>CK_SECOND = CK_RTC / 131072
-		<RTC_RPRE_262144=>CK_SECOND = CK_RTC / 262144
-		<RTC_RPRE_524288=>CK_SECOND = CK_RTC / 524288
+    <input=integer[0-1048575]>Prescaler(20bit)    
     <code>$rtcPresc$
 </group>
 
-<group>RTC Interrupt set
+<group>RTC Interrupt Set
     <list>Overflow interrupt
         <0=>Disable
         <ENABLE=>Enable
-		<code>$RTCOWIE$
+		<code>$rtcOWIE$
     <list>Alarm interrupt
         <0=>Disable
         <ENABLE=>Enable
-		<code>$RTCALRIE$
+		<code>$rtcALRIE$
     <list>Second interrupt
         <0=>Disable
         <ENABLE=>Enable
-		<code>$RTCSECIE$
+		<code>$rtcSECIE$
 </group>
 
-<group>RTC counter set
+<group>RTC Counter Set
     <input=integer>RTC counter
         <default>1
     <code>$rtcCounter$
 </group>
 	
-<group>RTC alarm set
+<group>RTC Alarm Set
     <input=integer>RTC alarm
         <default>1
     <code>$rtcAlarm$
@@ -87,21 +55,14 @@
     <action>RTC alarm set->RTC alarm = disable
 </dep>    	
 
-<dep>
-    <type>state
-    <trigger>RTC set->LSE clock = Disable
-    <trigger>RTC set->LSI clock = Disable
-	<trigger>RTC set->HSE_Div128 clock = Disable
-    <action>RTC set->Clock source = disable
-    <action>RTC set->Prescaler = disable
-</dep>    	
+ 	
 *******************************<<config wizard end>>**************************/
 #include "stm32f10x.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_rtc.h"
-#include "misc.h"
 
-#if(!STRCMP($RTCALRIE$|$RTCOWIE$|$RTCSECIE$, 0))
+#if(STRCMP($rtcALRIE$,ENABLE) == 1 ||STRCMP($rtcOWIE$,ENABLE)== 1 ||STRCMP($rtcSECIE$,ENABLE)== 1)
+#include "misc.h"
 /*******************************************************************************
  * Declare function prototype
 *******************************************************************************/
@@ -114,38 +75,52 @@ void RTC_IRQHandler(void);
 ******************************************************************************/
 void RTC_Init()
 {
-    #if(!STRCMP($RTCALRIE$|$RTCOWIE$|$RTCSECIE$, 0))
+    #if(STRCMP($rtcALRIE$,ENABLE) == 1 ||STRCMP($rtcOWIE$,ENABLE)== 1 ||STRCMP($rtcSECIE$,ENABLE)== 1)
     NVIC_InitTypeDef NVIC_InitStructure;
 	#endif
 	
-    #if(STRCMP($lseClkEnable$,ENABLE))
+    #if(STRCMP($rtcClkSrc$,RCC_RTCCLKSource_LSE))
     //PUT_A_NEW_LINE_HERE
     //
     // Enable LSE
     //
     RCC_LSEConfig(RCC_LSE_ON);
-    #endif
-    #if(STRCMP($lsiClkEnable$,ENABLE))
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable LSI
-    //
-    RCC_LSICmd(ENABLE);
-    #endif
-    #if(STRCMP($hsediv128ClkEnable$,ENABLE))
-    //PUT_A_NEW_LINE_HERE
-    //
-    // Enable HSE
-    //
-    RCC_HSEConfig(RCC_HSE_ON);
-    #endif
     //PUT_A_NEW_LINE_HERE
     while (RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET);
     //PUT_A_NEW_LINE_HERE
     //
     // Select RTC  clock source
     //
-    RCC_RTCCLKConfig($rtcClkSrc$);
+    RCC_RTCCLKConfig(RCC_RTCCLKSource_LSE);
+    #endif
+    #if(STRCMP($rtcClkSrc$,RCC_RTCCLKSource_LSI))
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enable LSI
+    //
+    RCC_LSICmd(ENABLE);
+    //PUT_A_NEW_LINE_HERE
+    while (RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET);
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Select RTC  clock source
+    //
+    RCC_RTCCLKConfig(RCC_RTCCLKSource_LSI);
+    #endif
+    #if(STRCMP($rtcClkSrc$,RCC_RTCCLKSource_HSE_Div128))
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enable HSE
+    //
+    RCC_HSEConfig(RCC_HSE_ON);
+    //PUT_A_NEW_LINE_HERE
+    while (RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET);
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Select RTC  clock source
+    //
+    RCC_RTCCLKConfig(RCC_RTCCLKSource_HSE_Div128);
+    #endif
     //PUT_A_NEW_LINE_HERE
     //
     // Enable RTC clock
@@ -176,7 +151,7 @@ void RTC_Init()
     // set RTC counter value
     //
     RTC_SetCounter($rtcCounter$);
-    #if(STRCMP($RTCOWIE$, ENABLE))
+    #if(STRCMP($rtcOWIE$, ENABLE))
     //PUT_A_NEW_LINE_HERE
     //
     // Wait until last write operation on RTC registers has finished 
@@ -188,7 +163,7 @@ void RTC_Init()
     //
     RTC_ITConfig(RTC_IT_OW, ENABLE);
     #endif
-	#if(STRCMP($RTCALRIE$, ENABLE))
+	#if(STRCMP($rtcALRIE$, ENABLE))
     //PUT_A_NEW_LINE_HERE
     //
     // Wait until last write operation on RTC registers has finished 
@@ -200,7 +175,7 @@ void RTC_Init()
     //
     RTC_ITConfig(RTC_IT_ALR, ENABLE);
     #endif
-	#if(STRCMP($RTCSECIE$, ENABLE))
+	#if(STRCMP($rtcSECIE$, ENABLE))
     //PUT_A_NEW_LINE_HERE
     //
     // Wait until last write operation on RTC registers has finished 
@@ -212,7 +187,7 @@ void RTC_Init()
     //
     RTC_ITConfig(RTC_IT_SEC, ENABLE);
     #endif
-    #if(!STRCMP($RTCALRIE$|$RTCOWIE$|$RTCSECIE$, 0))
+    #if(STRCMP($rtcALRIE$,ENABLE) == 1 ||STRCMP($rtcOWIE$,ENABLE)== 1 ||STRCMP($rtcSECIE$,ENABLE)== 1)
     //PUT_A_NEW_LINE_HERE
     NVIC_InitStructure.NVIC_IRQChannel = RTC_IRQn;
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
@@ -220,7 +195,7 @@ void RTC_Init()
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 	#endif
-    #if(STRCMP($RTCALRIE$, ENABLE))
+    #if(STRCMP($rtcALRIE$, ENABLE))
     //PUT_A_NEW_LINE_HERE
     //
     // Wait until last write operation on RTC registers has finished 
@@ -239,7 +214,7 @@ void RTC_Init()
     RTC_WaitForLastTask();
 }
 
-#if(!STRCMP($RTCALRIE$|$RTCOWIE$|$RTCSECIE$, 0))
+#if(STRCMP($rtcALRIE$,ENABLE) == 1 ||STRCMP($rtcOWIE$,ENABLE)== 1 ||STRCMP($rtcSECIE$,ENABLE)== 1)
 //PUT_A_NEW_LINE_HERE
 /*RTC IRQ Handler*/    
 void RTC_IRQHandler(void)

@@ -8,67 +8,67 @@
 <group=pin>Pin Used
     <list>Pin 0
         <DISABLE=>Disable
-        <PA0=>Enable
+        <PB0=>Enable
     <code>$pin0Used$
     <list>Pin 1
         <DISABLE=>Disable
-        <PA1=>Enable
+        <PB1=>Enable
     <code>$pin1Used$
     <list>Pin 2
         <DISABLE=>Disable
-        <PA2=>Enable
+        <PB2=>Enable
     <code>$pin2Used$
     <list>Pin 3
         <DISABLE=>Disable
-        <PA3=>Enable
+        <PB3=>Enable
     <code>$pin3Used$
     <list>Pin 4
         <DISABLE=>Disable
-        <PA4=>Enable
+        <PB4=>Enable
     <code>$pin4Used$
     <list>Pin 5
         <DISABLE=>Disable
-        <PA5=>Enable
+        <PB5=>Enable
     <code>$pin5Used$
     <list>Pin 6
         <DISABLE=>Disable
-        <PA6=>Enable
+        <PB6=>Enable
     <code>$pin6Used$
     <list>Pin 7
         <DISABLE=>Disable
-        <PA7=>Enable
+        <PB7=>Enable
     <code>$pin7Used$
     <list>Pin 8
         <DISABLE=>Disable
-        <PA8=>Enable
+        <PB8=>Enable
     <code>$pin8Used$
     <list>Pin 9
         <DISABLE=>Disable
-        <PA9=>Enable
+        <PB9=>Enable
     <code>$pin9Used$
     <list>Pin 10
         <DISABLE=>Disable
-        <PA10=>Enable
+        <PB10=>Enable
     <code>$pin10Used$
     <list>Pin 11
         <DISABLE=>Disable
-        <PA11=>Enable
+        <PB11=>Enable
     <code>$pin11Used$
     <list>Pin 12
         <DISABLE=>Disable
-        <PA12=>Enable
+        <PB12=>Enable
     <code>$pin12Used$
     <list>Pin 13
         <DISABLE=>Disable
-        <PA13=>Enable
+        <PB13=>Enable
     <code>$pin13Used$
     <list>Pin 14
         <DISABLE=>Disable
-        <PA14=>Enable
+        <PB14=>Enable
     <code>$pin14Used$
     <list>Pin 15
         <DISABLE=>Disable
-        <PA15=>Enable
+        <PB15=>Enable
     <code>$pin15Used$
 </group>
 
@@ -1008,7 +1008,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin0Used$, DISABLE) == 0)
     //
-    // Set PA0 Pin Mode
+    // Set PB0 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
     GPIO_InitStructure.GPIO_Mode = $pin0Mode$;
@@ -1018,13 +1018,13 @@ void GPIOB_Init()
 	STRCMP($pin0Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin0Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData0$, RESET) == 0)
     //
-    // Set or Reset PA0 bits of output data
+    // Set or Reset PB0 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_0);
     #endif
     #if(STRCMP($pinData0$, SET) == 0)
     //
-    // Set or Reset PA0 bits of output data
+    // Set or Reset PB0 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_0);
 	#endif
@@ -1033,7 +1033,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin1Used$, DISABLE) == 0)
     //
-    // Set PA1 Pin Mode
+    // Set PB1 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
     GPIO_InitStructure.GPIO_Mode = $pin1Mode$;
@@ -1043,13 +1043,13 @@ void GPIOB_Init()
 	STRCMP($pin1Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin1Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData1$, RESET) == 0)
     //
-    // Set or Reset PA1 bits of output data
+    // Set or Reset PB1 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_1);
     #endif
     #if(STRCMP($pinData1$, SET) == 0)
     //
-    // Set or Reset PA1 bits of output data
+    // Set or Reset PB1 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_1);
 	#endif
@@ -1058,7 +1058,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin2Used$, DISABLE) == 0)
     //
-    // Set PA2 Pin Mode
+    // Set PB2 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
     GPIO_InitStructure.GPIO_Mode = $pin2Mode$;
@@ -1068,13 +1068,13 @@ void GPIOB_Init()
 	STRCMP($pin2Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin2Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData2$, RESET) == 0)
     //
-    // Set or Reset PA2 bits of output data
+    // Set or Reset PB2 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_2);
     #endif
     #if(STRCMP($pinData2$, SET) == 0)
 	//
-    // Set or Reset PA2 bits of output data
+    // Set or Reset PB2 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_2);
 	#endif
@@ -1083,7 +1083,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin3Used$, DISABLE) == 0)
     //
-    // Set PA3 Pin Mode
+    // Set PB3 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
     GPIO_InitStructure.GPIO_Mode = $pin3Mode$;
@@ -1093,13 +1093,13 @@ void GPIOB_Init()
 	STRCMP($pin3Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin3Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData3$, RESET) == 0)
     //
-    // Set or Reset PA3 bits of output data
+    // Set or Reset PB3 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_3);
     #endif
     #if(STRCMP($pinData3$, SET) == 0)
     //
-    // Set or Reset PA3 bits of output data
+    // Set or Reset PB3 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_3);
 	#endif
@@ -1108,7 +1108,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin4Used$, DISABLE) == 0)
     //
-    // Set PA4 Pin Mode
+    // Set PB4 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
     GPIO_InitStructure.GPIO_Mode = $pin4Mode$;
@@ -1118,13 +1118,13 @@ void GPIOB_Init()
 	STRCMP($pin4Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin4Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData4$, RESET) == 0)
 	//
-    // Set or Reset PA4 bits of output data
+    // Set or Reset PB4 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_4);
     #endif
     #if(STRCMP($pinData4$, SET) == 0)
 	//
-    // Set or Reset PA4 bits of output data
+    // Set or Reset PB4 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_4);
 	#endif
@@ -1133,7 +1133,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin5Used$, DISABLE) == 0)
     //
-    // Set PA5 Pin Mode
+    // Set PB5 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
     GPIO_InitStructure.GPIO_Mode = $pin5Mode$;
@@ -1143,13 +1143,13 @@ void GPIOB_Init()
 	STRCMP($pin5Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin5Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData5$, RESET) == 0)
 	//
-    // Set or Reset PA5 bits of output data
+    // Set or Reset PB5 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_5);
     #endif
     #if(STRCMP($pinData5$, SET) == 0)
 	//
-    // Set or Reset PA5 bits of output data
+    // Set or Reset PB5 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_5);
 	#endif
@@ -1158,7 +1158,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin6Used$, DISABLE) == 0)
     //
-    // Set PA6 Pin Mode
+    // Set PB6 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
     GPIO_InitStructure.GPIO_Mode = $pin6Mode$;
@@ -1168,13 +1168,13 @@ void GPIOB_Init()
 	STRCMP($pin6Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin6Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData6$, RESET) == 0)
 	//
-    // Set or Reset PA6 bits of output data
+    // Set or Reset PB6 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_6);
     #endif
     #if(STRCMP($pinData6$, SET) == 0)
 	//
-    // Set or Reset PA6 bits of output data
+    // Set or Reset PB6 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_6);
 	#endif
@@ -1183,7 +1183,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin7Used$, DISABLE) == 0)
     //
-    // Set PA7 Pin Mode
+    // Set PB7 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
     GPIO_InitStructure.GPIO_Mode = $pin7Mode$;
@@ -1193,13 +1193,13 @@ void GPIOB_Init()
 	STRCMP($pin7Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin7Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData7$, RESET) == 0)
 	//
-    // Set or Reset PA7 bits of output data
+    // Set or Reset PB7 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_7);
     #endif
     #if(STRCMP($pinData7$, SET) == 0)
 	//
-    // Set or Reset PA7 bits of output data
+    // Set or Reset PB7 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_7);
 	#endif
@@ -1208,7 +1208,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin8Used$, DISABLE) == 0)
     //
-    // Set PA8 Pin Mode
+    // Set PB8 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
     GPIO_InitStructure.GPIO_Mode = $pin8Mode$;
@@ -1218,13 +1218,13 @@ void GPIOB_Init()
 	STRCMP($pin8Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin8Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData8$, RESET) == 0)
 	//
-    // Set or Reset PA8 bits of output data
+    // Set or Reset PB8 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_8);
     #endif
     #if(STRCMP($pinData8$, SET) == 0)
 	//
-    // Set or Reset PA8 bits of output data
+    // Set or Reset PB8 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_8);
 	#endif
@@ -1233,7 +1233,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin9Used$, DISABLE) == 0)
     //
-    // Set PA9 Pin Mode
+    // Set PB9 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
     GPIO_InitStructure.GPIO_Mode = $pin9Mode$;
@@ -1243,13 +1243,13 @@ void GPIOB_Init()
 	STRCMP($pin9Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin9Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData9$, RESET) == 0)
 	//
-    // Set or Reset PA9 bits of output data
+    // Set or Reset PB9 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_9);
     #endif
     #if(STRCMP($pinData9$, SET) == 0)
 	//
-    // Set or Reset PA9 bits of output data
+    // Set or Reset PB9 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_9);
 	#endif
@@ -1258,7 +1258,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin10Used$, DISABLE) == 0)
     //
-    // Set PA10 Pin Mode
+    // Set PB10 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
     GPIO_InitStructure.GPIO_Mode = $pin10Mode$;
@@ -1268,13 +1268,13 @@ void GPIOB_Init()
 	STRCMP($pin10Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin10Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData10$, RESET) == 0)
 	//
-    // Set or Reset PA10 bits of output data
+    // Set or Reset PB10 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_10);
     #endif
     #if(STRCMP($pinData10$, SET) == 0)
 	//
-    // Set or Reset PA10 bits of output data
+    // Set or Reset PB10 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_10);
 	#endif
@@ -1283,7 +1283,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin11Used$, DISABLE) == 0)
     //
-    // Set PA11 Pin Mode
+    // Set PB11 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_11;
     GPIO_InitStructure.GPIO_Mode = $pin11Mode$;
@@ -1293,13 +1293,13 @@ void GPIOB_Init()
 	STRCMP($pin11Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin11Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData11$, RESET) == 0)
 	//
-    // Set or Reset PA11 bits of output data
+    // Set or Reset PB11 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_11);
     #endif
     #if(STRCMP($pinData11$, SET) == 0)
 	//
-    // Set or Reset PA11 bits of output data
+    // Set or Reset PB11 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_11);
 	#endif
@@ -1308,7 +1308,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin12Used$, DISABLE) == 0)
     //
-    // Set PA12 Pin Mode
+    // Set PB12 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
     GPIO_InitStructure.GPIO_Mode = $pin12Mode$;
@@ -1318,13 +1318,13 @@ void GPIOB_Init()
 	STRCMP($pin12Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin12Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData12$, RESET) == 0)
 	//
-    // Set or Reset PA12 bits of output data
+    // Set or Reset PB12 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_12);
     #endif
     #if(STRCMP($pinData12$, SET) == 0)
 	//
-    // Set or Reset PA12 bits of output data
+    // Set or Reset PB12 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_12);
 	#endif
@@ -1333,7 +1333,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin13Used$, DISABLE) == 0)
     //
-    // Set PA13 Pin Mode
+    // Set PB13 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
     GPIO_InitStructure.GPIO_Mode = $pin13Mode$;
@@ -1343,13 +1343,13 @@ void GPIOB_Init()
 	STRCMP($pin13Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin13Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData13$, RESET) == 0)
 	//
-    // Set or Reset PA13 bits of output data
+    // Set or Reset PB13 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_13);
     #endif
     #if(STRCMP($pinData13$, SET) == 0)
 	//
-    // Set or Reset PA13 bits of output data
+    // Set or Reset PB13 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_13);
 	#endif
@@ -1358,7 +1358,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin14Used$, DISABLE) == 0)
     //
-    // Set PA14 Pin Mode
+    // Set PB14 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
     GPIO_InitStructure.GPIO_Mode = $pin14Mode$;
@@ -1368,13 +1368,13 @@ void GPIOB_Init()
 	STRCMP($pin14Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin14Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData14$, RESET) == 0)
 	//
-    // Set or Reset PA14 bits of output data
+    // Set or Reset PB14 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_14);
     #endif
     #if(STRCMP($pinData14$, SET) == 0)
 	//
-    // Set or Reset PA14 bits of output data
+    // Set or Reset PB14 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_14);
 	#endif
@@ -1383,7 +1383,7 @@ void GPIOB_Init()
 	
     #if(STRCMP($pin15Used$, DISABLE) == 0)
     //
-    // Set PA15 Pin Mode
+    // Set PB15 Pin Mode
     //	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
     GPIO_InitStructure.GPIO_Mode = $pin15Mode$;
@@ -1393,13 +1393,13 @@ void GPIOB_Init()
 	STRCMP($pin15Mode$, GPIO_Mode_AF_OD) != 0 || STRCMP($pin15Mode$, GPIO_Mode_AF_PP) != 0)
     #if(STRCMP($pinData15$, RESET) == 0)
 	//
-    // Set or Reset PA15 bits of output data
+    // Set or Reset PB15 bits of output data
     //
     GPIO_SetBits(GPIOB, GPIO_Pin_15);
     #endif
     #if(STRCMP($pinData15$, SET) == 0)
 	//
-    // Set or Reset PA15 bits of output data
+    // Set or Reset PB15 bits of output data
     //
     GPIO_ResetBits(GPIOB, GPIO_Pin_15);
 	#endif

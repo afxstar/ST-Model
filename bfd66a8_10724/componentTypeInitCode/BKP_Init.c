@@ -69,6 +69,25 @@
     <code>$bkpDatareg10$
 </group>
 
+<group=pin>Pins Used
+    <list>TAMPER-RTC
+		<DISABLE =>Disable
+        <TAMPER-RTC=>Enable
+        <code>$tamperPinEn$
+</group>
+
+<dep>
+    <type>value
+    <trigger>Tamper detection config->Tamper detection = Disable
+	<action>Pins Used->TAMPER-RTC = Disable
+</dep>
+
+<dep>
+    <type>value
+    <trigger>Tamper detection config->Tamper detection = Enable
+	<action>Pins Used->TAMPER-RTC = Enable
+</dep>
+
 <dep>
     <type>state
     <trigger>Tamper detection config->Tamper detection = Disable

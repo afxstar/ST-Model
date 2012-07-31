@@ -6,10 +6,10 @@
 </group>
 
 <group>Time-Base Config
-    <input=integer[0-65535]>Period
+    <input=integer[0-65535]>Period[0-65535]
         <default>0
 	    <code>$tim2Period$
-    <input=integer[0-65535]>Prescaler
+    <input=integer[0-65535]>Prescaler[0-65535]
         <default>0
 	    <code>$tim2Psclr$
     <list>Clock Division
@@ -94,7 +94,6 @@
         <code>$interClkEn$
     <list>Internal Trigger
         <DISABLE=>None
-        <TIM_ITRSource=>ITRSource
         <TIM_TS_ITR0=>ITR0
         <TIM_TS_ITR1=>ITR1
         <TIM_TS_ITR2=>ITR2
@@ -108,8 +107,8 @@
         <code>$timxTrigr$
     <list>External Trigger
         <DISABLE=>None
-        <GPIO_PortSourceGPIOB=>External Trigger Mode 1
-        <GPIO_PortSourceGPIOC=>External Trigger Mode 2
+        <ExternalTriggerMode1=>External Trigger Mode 1
+        <ExternalTriggerMode2=>External Trigger Mode 2
         <code>$extTrigr$
 </group>
 
@@ -190,22 +189,22 @@
         <TIM_OCMode_Toggle=>Toggle
         <TIM_OCMode_PWM1=>PWM1
         <TIM_OCMode_PWM2=>PWM2
-        <code>$OC2Mode$
+        <code>$oc2Mode$
     <input=integer[0-65535]>OC2 Pluse
         <default>0
-	    <code>$OC2Pluse$
+	    <code>$oc2Pluse$
     <list>OC2 State
         <TIM_OutputState_Disable=>Disable
         <TIM_OutputState_Enable=>Enable
-        <code>$OC2State$
+        <code>$oc2State$
     <list>OC2 Polarity
         <TIM_OCPolarity_High=>High
         <TIM_OCPolarity_Low=>Low
-        <code>$OC2Polar$
+        <code>$oc2Polar$
     <list>OC2 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC2Preload$
+        <code>$oc2Preload$
     <list>OC2 Fast Config
         <DISABLE=>Disable
         <ENABLE=>Enable
@@ -213,26 +212,26 @@
     <list>Clear OC2 Ref
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC2clrRef$
+        <code>$oc2clrRef$
     <list>IC2 Polarity
         <TIM_ICPolarity_Rising=>Rising
         <TIM_ICPolarity_Falling=>Falling
         <TIM_ICPolarity_BothEdge=>BothEdge
-        <code>$IC2Polar$
+        <code>$ic2Polar$
     <list>IC2 Selection
         <TIM_ICSelection_DirectTI=>DirectTI
         <TIM_ICSelection_IndirectTI=>IndirectTI
         <TIM_ICSelection_TRC=>TRC
-        <code>$IC2Sel$
+        <code>$ic2Sel$
     <list>IC2 Prescaler
         <TIM_ICPSC_DIV1=>Disable
         <TIM_ICPSC_DIV2=>Enable
         <TIM_ICPSC_DIV4=>Disable
         <TIM_ICPSC_DIV8=>Enable
-        <code>$IC2Psc$
+        <code>$ic2Psc$
     <input=integer[0-15]>IC2 Filter[0-15]
         <default>0
-        <code>$IC2Filter$
+        <code>$ic2Filter$
 </group>
 
 <group>Channel 3 Config
@@ -251,22 +250,22 @@
         <TIM_OCMode_Toggle=>Toggle
         <TIM_OCMode_PWM1=>PWM1
         <TIM_OCMode_PWM2=>PWM2
-        <code>$OC3Mode$
+        <code>$oc3Mode$
     <input=integer[0-65535]>OC3 Pluse
         <default>0
-	    <code>$OC3Pluse$
+	    <code>$oc3Pluse$
     <list>OC3 State
         <TIM_OutputState_Disable=>Disable
         <TIM_OutputState_Enable=>Enable
-        <code>$OC3State$
+        <code>$oc3State$
     <list>OC3 Polarity
         <TIM_OCPolarity_High=>High
         <TIM_OCPolarity_Low=>Low
-        <code>$OC3Polar$
+        <code>$oc3Polar$
     <list>OC3 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC3Preload$
+        <code>$oc3Preload$
     <list>OC3 Fast Config
         <DISABLE=>Disable
         <ENABLE=>Enable
@@ -274,27 +273,28 @@
     <list>Clear OC3 Ref
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC3clrRef$
+        <code>$oc3clrRef$
     <list>IC3 Polarity
         <TIM_ICPolarity_Rising=>Rising
         <TIM_ICPolarity_Falling=>Falling
         <TIM_ICPolarity_BothEdge=>BothEdge
-        <code>$IC3Polar$
+        <code>$ic3Polar$
     <list>IC3 Selection
         <TIM_ICSelection_DirectTI=>DirectTI
         <TIM_ICSelection_IndirectTI=>IndirectTI
         <TIM_ICSelection_TRC=>TRC
-        <code>$IC3Sel$
+        <code>$ic3Sel$
     <list>IC3 Prescaler
         <TIM_ICPSC_DIV1=>Disable
         <TIM_ICPSC_DIV2=>Enable
         <TIM_ICPSC_DIV4=>Disable
         <TIM_ICPSC_DIV8=>Enable
-        <code>$IC3Psc$
+        <code>$ic3Psc$
     <input=integer[0-15]>IC3 Filter[0-15]
         <default>0
-        <code>$IC3Filter$
+        <code>$ic3Filter$
 </group>
+
 
 <group>Channel 4 Config
     <list>Channel 4 Enable
@@ -312,22 +312,22 @@
         <TIM_OCMode_Toggle=>Toggle
         <TIM_OCMode_PWM1=>PWM1
         <TIM_OCMode_PWM2=>PWM2
-        <code>$OC4Mode$
+        <code>$oc4Mode$
     <input=integer[0-65535]>OC4 Pluse
         <default>0
-	    <code>$OC4Pluse$
+	    <code>$oc4Pluse$
     <list>OC4 State
         <TIM_OutputState_Disable=>Disable
         <TIM_OutputState_Enable=>Enable
-        <code>$OC4State$
+        <code>$oc4State$
     <list>OC4 Polarity
         <TIM_OCPolarity_High=>High
         <TIM_OCPolarity_Low=>Low
-        <code>$OC4Polar$
+        <code>$oc4Polar$
     <list>OC4 Preload
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC4Preload$
+        <code>$oc4Preload$
     <list>OC4 Fast Config
         <DISABLE=>Disable
         <ENABLE=>Enable
@@ -335,26 +335,26 @@
     <list>Clear OC4 Ref
         <DISABLE=>Disable
         <ENABLE=>Enable
-        <code>$OC4clrRef$
+        <code>$oc4clrRef$
     <list>IC4 Polarity
         <TIM_ICPolarity_Rising=>Rising
         <TIM_ICPolarity_Falling=>Falling
         <TIM_ICPolarity_BothEdge=>BothEdge
-        <code>$IC4Polar$
+        <code>$ic4Polar$
     <list>IC4 Selection
         <TIM_ICSelection_DirectTI=>DirectTI
         <TIM_ICSelection_IndirectTI=>IndirectTI
         <TIM_ICSelection_TRC=>TRC
-        <code>$IC4Sel$
+        <code>$ic4Sel$
     <list>IC4 Prescaler
         <TIM_ICPSC_DIV1=>Disable
         <TIM_ICPSC_DIV2=>Enable
         <TIM_ICPSC_DIV4=>Disable
         <TIM_ICPSC_DIV8=>Enable
-        <code>$IC4Psc$
+        <code>$ic4Psc$
     <input=integer[0-15]>IC4 Filter[0-15]
         <default>0
-        <code>$IC4Filter$
+        <code>$ic4Filter$
 </group>
 
 <group>Event Config
@@ -456,6 +456,50 @@
         <0=>Disable
         <TIM_DMA_Trigger=>Enable
         <code>$tim2dmaRqstSrc$
+</group>
+
+<group>Pin Remap Config
+    <list>Pin Remap Select
+        <DEFAULT=>Default
+        <GPIO_PartialRemap1_TIM2=>PartialRemap1
+        <GPIO_PartialRemap2_TIM2=>PartialRemap2
+        <GPIO_FullRemap_TIM2=>FullRemap
+        <code>$tim2PinRemap$
+</group>
+
+<group=pin>Pin Used
+    <list>CH1_ETR_0
+        <DISABLE=>Disable
+        <TIM2_CH1_ETR_0=>Enable
+        <code>$ch1Etr_0Pin$
+    <list>CH1_ETR_1
+        <DISABLE=>Disable
+        <TIM2_CH1_ETR_1=>Enable
+        <code>$ch1Etr_1Pin$
+    <list>CH2_0
+        <DISABLE=>Disable
+        <TIM2_CH2_0=>Enable
+        <code>$ch2_0Pin$
+    <list>CH2_1
+        <DISABLE=>Disable
+        <TIM2_CH2_1=>Enable
+        <code>$ch2_1Pin$
+    <list>CH3_0
+        <DISABLE=>Disable
+        <TIM2_CH3_0=>Enable
+        <code>$ch3_0Pin$
+    <list>CH3_1
+        <DISABLE=>Disable
+        <TIM2_CH3_1=>Enable
+        <code>$ch3_1Pin$
+    <list>CH4_0
+        <DISABLE=>Disable
+        <TIM2_CH4_0=>Enable
+        <code>$ch4_0Pin$
+    <list>CH4_1
+        <DISABLE=>Disable
+        <TIM2_CH4_1=>Enable
+        <code>$ch4_1Pin$
 </group>
 
 <dep>
@@ -654,9 +698,61 @@
     <action>DMA Request Source = Disable
 </dep>
 
+<dep>
+    <type>state
+    <trigger>Pin Remap Config->Pin Remap Select = Default
+    <action>Pin Used->CH1_ETR_0 = Enable
+    <action>Pin Used->CH2_0 = Enable
+    <action>Pin Used->CH3_0 = Enable
+    <action>Pin Used->CH4_0 = Enable
+    <action>Pin Used->CH1_ETR_1 = Disable
+    <action>Pin Used->CH2_1 = Disable
+    <action>Pin Used->CH3_1 = Disable
+    <action>Pin Used->CH4_1 = Disable
+</dep>
+
+<dep>
+    <type>state
+    <trigger>Pin Remap Config->Pin Remap Select = PartialRemap1
+    <action>Pin Used->CH1_ETR_1 = Enable
+    <action>Pin Used->CH2_1 = Enable
+    <action>Pin Used->CH3_0 = Enable
+    <action>Pin Used->CH4_0 = Enable
+    <action>Pin Used->CH1_ETR_0 = Disable
+    <action>Pin Used->CH2_0 = Disable
+    <action>Pin Used->CH3_1 = Disable
+    <action>Pin Used->CH4_1 = Disable
+</dep>
+
+<dep>
+    <type>state
+    <trigger>Pin Remap Config->Pin Remap Select = PartialRemap2
+    <action>Pin Used->CH1_ETR_0 = Enable
+    <action>Pin Used->CH2_0 = Enable
+    <action>Pin Used->CH3_1 = Enable
+    <action>Pin Used->CH4_1 = Enable
+    <action>Pin Used->CH1_ETR_1 = Disable
+    <action>Pin Used->CH2_1 = Disable
+    <action>Pin Used->CH3_0 = Disable
+    <action>Pin Used->CH4_0 = Disable
+</dep>
+
+<dep>
+    <type>state
+    <trigger>Pin Remap Config->Pin Remap Select = FullRemap
+    <action>Pin Used->CH1_ETR_1 = Enable
+    <action>Pin Used->CH2_1 = Enable
+    <action>Pin Used->CH3_1 = Enable
+    <action>Pin Used->CH4_1 = Enable
+    <action>Pin Used->CH1_ETR_0 = Disable
+    <action>Pin Used->CH2_0 = Disable
+    <action>Pin Used->CH3_0 = Disable
+    <action>Pin Used->CH4_0 = Disable
+</dep>
 *******************************<<config wizard end>>**************************/
 #include "stm32f10x.h"
 #include "stm32f10x_rcc.h"
+#include "stm32f10x_gpio.h"
 #include "stm32f10x_tim.h"
 
 #if (STRCMP($tim2IntEn$, 0) == 0)
@@ -677,7 +773,14 @@ void TIM2_Init()
 	#if (STRCMP($tim2IntEn$, 0) == 0)
     NVIC_InitTypeDef NVIC_InitStructure;
 	#endif
-	
+
+	#if (STRCMP($ch1Etr_0Pin$, DISABLE) == 0 || STRCMP($ch1Etr_1Pin$, DISABLE) == 0 || \
+	STRCMP($ch2_0Pin$, DISABLE) == 0 || STRCMP($ch2_1Pin$, DISABLE) == 0 || \
+    STRCMP($ch3_0Pin$, DISABLE) == 0 || STRCMP($ch3_1Pin$, DISABLE) == 0 || \
+    STRCMP($ch4_0Pin$, DISABLE) == 0 || STRCMP($ch4_1Pin$, DISABLE) == 0)
+    GPIO_InitTypeDef GPIO_InitStructure;
+	#endif	
+
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	
     #if ( (STRCMP($ch1En$, DISABLE) == 0 && STRCMP($ch1sel$, CAPTURE_ENABLE) == 0) || \
@@ -691,7 +794,7 @@ void TIM2_Init()
 	(STRCMP($ch2En$, DISABLE) == 0 && STRCMP($ch2sel$, COMPARE_ENABLE) == 0) || \
 	(STRCMP($ch3En$, DISABLE) == 0 && STRCMP($ch3sel$, COMPARE_ENABLE) == 0) || \
 	(STRCMP($ch4En$, DISABLE) == 0 && STRCMP($ch4sel$, COMPARE_ENABLE) == 0) )	
-    TIM_ICInitTypeDef  TIM_ICInitStructure
+    TIM_ICInitTypeDef  TIM_ICInitStructure;
 	#endif
 	
 	//PUT_A_NEW_LINE_HERE
@@ -700,6 +803,196 @@ void TIM2_Init()
     //	
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 
+	#if (STRCMP($tim2PinRemap$, DEFAULT) == 0 )
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enable TIM2's GPIOA, GPIOB, AFIO clock
+    //	
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_AFIO, ENABLE);
+	#else
+    //PUT_A_NEW_LINE_HERE
+    //
+    // Enable TIM2's GPIOA, AFIO clock
+    //	
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);	
+	#endif
+
+	#if (STRCMP($tim2PinRemap$, DEFAULT) == 1)
+	#if (STRCMP($ch1Etr_0Pin$, DISABLE) == 0 || STRCMP($ch2_0Pin$, DISABLE) == 0 || STRCMP($ch3_0Pin$, DISABLE) == 0 || STRCMP($ch4_0Pin$, DISABLE) == 0)
+    //   
+    // Configure TIM2 pins: CH1_ETR, CH2, CH3, CH4, when Pin Remap is Default
+    //
+	#endif
+	#if (STRCMP($ch1Etr_0Pin$, DISABLE) == 0)
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_0;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch2_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;	
+    #if (STRCMP($ch2sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch3_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2;
+    #if (STRCMP($ch3sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch4_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3;
+    #if (STRCMP($ch4sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#endif
+	
+	#if (STRCMP($tim2PinRemap$, GPIO_PartialRemap1_TIM2) == 1)
+    //   
+    // Configure TIM2 pins: CH1_ETR, CH2, CH3, CH4, when Pin Remap is PartialRemap1
+    // 
+    GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2, ENABLE);
+	#if (STRCMP($ch1Etr_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch2_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3;
+    #if (STRCMP($ch2sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch3_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2;
+    #if (STRCMP($ch3sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch4_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3;
+    #if (STRCMP($ch4sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#endif
+	
+	#if (STRCMP($tim2PinRemap$, GPIO_PartialRemap2_TIM2) == 1)
+    //   
+    // Configure TIM2 pins: CH1_ETR, CH2, CH3, CH4, when Pin Remap is PartialRemap2
+    // 
+    GPIO_PinRemapConfig(GPIO_PartialRemap2_TIM2, ENABLE);
+	#if (STRCMP($ch1Etr_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_0;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch2_0Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;
+    #if (STRCMP($ch2sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch3_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_10;
+    #if (STRCMP($ch3sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch4_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_11;
+    #if (STRCMP($ch4sel$, CAPTURE_ENABLE) == 1)
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    #else
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    #endif
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#endif
+	
+    #if (STRCMP($tim2PinRemap$, GPIO_FullRemap_TIM2) == 1)	
+    //   
+    // Configure TIM2 pins: CH1_ETR, CH2, CH3, CH4, when Pin Remap is FullRemap
+    // 
+    GPIO_PinRemapConfig(GPIO_FullRemap_TIM2, ENABLE);
+	#if (STRCMP($ch1Etr_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch2_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch3_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#if (STRCMP($ch4_1Pin$, DISABLE) == 0)
+    //PUT_A_NEW_LINE_HERE
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_11;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	#endif
+	#endif
+	
 	//PUT_A_NEW_LINE_HERE
     //
     // Initializes the TIM2 Time Base Unit
@@ -708,7 +1001,7 @@ void TIM2_Init()
     TIM_TimeBaseStructure.TIM_Prescaler = $tim2Psclr$;
     TIM_TimeBaseStructure.TIM_ClockDivision = $tim2ClkDiv$;
     TIM_TimeBaseStructure.TIM_CounterMode = $tim2CntMode$;
-    TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);	
+    TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
 	
     #if (STRCMP($tim2ARRMode$, DISABLE) == 0)
 	//PUT_A_NEW_LINE_HERE
@@ -761,12 +1054,12 @@ void TIM2_Init()
     //
     // Initializes Input Capture Channel1 of the TIM2 
     //	
-	TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;                   
-	TIM_ICInitStructure.TIM_ICPolarity = $ic1Polar$;     
-	TIM_ICInitStructure.TIM_ICSelection = $ic1Sel$;
-	TIM_ICInitStructure.TIM_ICPrescaler = $ic1Psc$;
-	TIM_ICInitStructure.TIM_ICFilter = $ic1Filter$; 
-	TIM_ICInit(TIM2, TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;                   
+    TIM_ICInitStructure.TIM_ICPolarity = $ic1Polar$;     
+    TIM_ICInitStructure.TIM_ICSelection = $ic1Sel$;
+    TIM_ICInitStructure.TIM_ICPrescaler = $ic1Psc$;
+    TIM_ICInitStructure.TIM_ICFilter = $ic1Filter$; 
+    TIM_ICInit(TIM2, &TIM_ICInitStructure);
 	#endif
     #endif
 	
@@ -813,12 +1106,12 @@ void TIM2_Init()
     //
     // Initializes Input Capture Channel2 of the TIM2
     //	
-	TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;                   
-	TIM_ICInitStructure.TIM_ICPolarity = $ic2Polar$;     
-	TIM_ICInitStructure.TIM_ICSelection = $ic2Sel$;
-	TIM_ICInitStructure.TIM_ICPrescaler = $ic2Psc$;
-	TIM_ICInitStructure.TIM_ICFilter = $ic2Filter$; 
-	TIM_ICInit(TIM2, TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;                   
+    TIM_ICInitStructure.TIM_ICPolarity = $ic2Polar$;     
+    TIM_ICInitStructure.TIM_ICSelection = $ic2Sel$;
+    TIM_ICInitStructure.TIM_ICPrescaler = $ic2Psc$;
+    TIM_ICInitStructure.TIM_ICFilter = $ic2Filter$; 
+    TIM_ICInit(TIM2, &TIM_ICInitStructure);
 	#endif
     #endif
 
@@ -866,12 +1159,12 @@ void TIM2_Init()
     //
     // Initializes Input Capture Channel3 of the TIM2
     //	
-	TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;                   
-	TIM_ICInitStructure.TIM_ICPolarity = $ic3Polar$;     
-	TIM_ICInitStructure.TIM_ICSelection = $ic3Sel$;
-	TIM_ICInitStructure.TIM_ICPrescaler = $ic3Psc$;
-	TIM_ICInitStructure.TIM_ICFilter = $ic3Filter$; 
-	TIM_ICInit(TIM2, TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_3;                   
+    TIM_ICInitStructure.TIM_ICPolarity = $ic3Polar$;     
+    TIM_ICInitStructure.TIM_ICSelection = $ic3Sel$;
+    TIM_ICInitStructure.TIM_ICPrescaler = $ic3Psc$;
+    TIM_ICInitStructure.TIM_ICFilter = $ic3Filter$; 
+    TIM_ICInit(TIM2, &TIM_ICInitStructure);
 	#endif
     #endif
 
@@ -919,12 +1212,12 @@ void TIM2_Init()
     //
     // Initializes Input Capture Channel4 of the TIM2
     //	
-	TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;                   
-	TIM_ICInitStructure.TIM_ICPolarity = $ic4Polar$;     
-	TIM_ICInitStructure.TIM_ICSelection = $ic4Sel$;
-	TIM_ICInitStructure.TIM_ICPrescaler = $ic4Psc$;
-	TIM_ICInitStructure.TIM_ICFilter = $ic4Filter$; 
-	TIM_ICInit(TIM2, TIM_ICInitStructure);
+    TIM_ICInitStructure.TIM_Channel = TIM_Channel_4;                   
+    TIM_ICInitStructure.TIM_ICPolarity = $ic4Polar$;     
+    TIM_ICInitStructure.TIM_ICSelection = $ic4Sel$;
+    TIM_ICInitStructure.TIM_ICPrescaler = $ic4Psc$;
+    TIM_ICInitStructure.TIM_ICFilter = $ic4Filter$; 
+    TIM_ICInit(TIM2, &TIM_ICInitStructure);
 	#endif
     #endif
 
@@ -958,7 +1251,7 @@ void TIM2_Init()
     TIM_SelectSlaveMode(TIM2, $slaveModeSet$);
 	#endif
 	
-    #if (STRCMP($slaveEn$, DISABLE) == 0 )
+    #if (STRCMP($onePulseEn$, TIM_OPMode_Repetitive) == 0 )
 	//PUT_A_NEW_LINE_HERE
     //
     // Selects the TIM2's One Pulse Mode
@@ -984,9 +1277,9 @@ void TIM2_Init()
 	#endif
 		
 	
-    #if (STRCMP($interClkEn$, DISABLE) == 0 )
+    #if (STRCMP($interClkEn$, ENABLE) == 0 )
 
-    #if (STRCMP($interTrigr$, None) == 0 )
+    #if (STRCMP($interTrigr$, DISABLE) == 0 )
     //PUT_A_NEW_LINE_HERE
     //
     // Configures the TIM2 Internal Trigger as External Clock
@@ -994,7 +1287,7 @@ void TIM2_Init()
     TIM_ITRxExternalClockConfig(TIM2, $interTrigr$);
 	#endif
 
-    #if (STRCMP($timxTrigr$, None) == 0 )
+    #if (STRCMP($timxTrigr$, DISABLE) == 0 )
     //PUT_A_NEW_LINE_HERE
     //
     // Configures the TIM2 Trigger as External Clock
@@ -1002,20 +1295,20 @@ void TIM2_Init()
     TIM_TIxExternalClockConfig(TIM2, $timxTrigr$, TIM_ICPolarity_Rising, 0x0);
 	#endif
 	
-    #if (STRCMP($extTrigr$, None) == 0 )
-    #if (STRCMP($extTrigr$, ExternalTriggerMode1) == 0 )
+    #if (STRCMP($extTrigr$, DISABLE) == 0 )
+    #if (STRCMP($extTrigr$, ExternalTriggerMode1) == 1 )
     //PUT_A_NEW_LINE_HERE
     //
     // Configures the External clock Mode1
     //
     TIM_ETRClockMode1Config(TIM2, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0x0);
 	#endif
-    #if (STRCMP($extTrigr$, ExternalTriggerMode2) == 0 )
+    #if (STRCMP($extTrigr$, ExternalTriggerMode2) == 1 )
     //PUT_A_NEW_LINE_HERE
     //
     // Configures the External clock Mode2
     //
-    TIM_ETRClockMode1Config(TIM2, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0x0);
+    TIM_ETRClockMode2Config(TIM2, TIM_ExtTRGPSC_OFF, TIM_ExtTRGPolarity_Inverted, 0x0);
 	#endif
 	#endif
 	#endif

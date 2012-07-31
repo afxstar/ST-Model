@@ -2,14 +2,14 @@
 <group>Peripheral
     <list>Peripheral Name
         <PWR=>PWR
-    <code>$pwr$
+        <code>$pwr$
 </group>
 
 <group>Programmable voltage detector
     <list>PVD
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$pvdEn$
+        <code>$pvdEn$
     <list>PVD level config
         <PWR_PVDLevel_2V2=>2.2V
         <PWR_PVDLevel_2V3=>2.3V
@@ -19,38 +19,38 @@
         <PWR_PVDLevel_2V7=>2.7V
         <PWR_PVDLevel_2V8=>2.8V
         <PWR_PVDLevel_2V9=>2.9V
-    <code>$pvdLevelValue$
+        <code>$pvdLevelValue$
     <list>Interrupt config
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$pvdIntEn$ 
+        <code>$pvdIntEn$ 
     <list>Interrupt trigger type
         <EXTI_Trigger_Falling=>Falling Trigger
         <EXTI_Trigger_Rising=>Rising Trigger
         <EXTI_Trigger_Rising_Falling=>Both Trigger
-    <code>$pvdIntTrigrType$	
+        <code>$pvdIntTrigrType$	
 </group>
 
 <group>WakeUp pin enable 
     <list>WakeUp pin
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$wakeupPinEn$
+        <code>$wakeupPinEn$
 </group>
 
 <group>STOP mode set
     <list>STOP mode
         <DISABLE=>Disable
         <ENABLE=>Enable
-    <code>$stopModeEn$
+        <code>$stopModeEn$
     <list>regulator state
         <PWR_Regulator_ON=>ON
         <PWR_Regulator_LowPower=>LowPower
-    <code>$regulatorState$
+        <code>$regulatorState$
     <list>Entry instruction
 	    <PWR_STOPEntry_WFI=>WFI
 		<PWR_STOPEntry_WFE=>WFE
-    <code>$stopEntryIns$
+        <code>$stopEntryIns$
 </group>
 
 <group>STANDBY mode set
@@ -58,6 +58,13 @@
         <DISABLE=>Disable
         <ENABLE=>Enable
     <code>$standbyModeEn$
+</group>
+
+<group=pin>Pins Used
+    <list>WKUP
+		<DISABLE =>Disable
+        <WKUP=>Enable
+        <code>$WKUP$
 </group>
 
 <dep>
@@ -80,10 +87,24 @@
 	<action>STOP mode set->regulator state = Disable
 	<action>STOP mode set->Entry instruction = Disable
 </dep>
+
+<dep>
+    <type>value
+    <trigger>WakeUp pin enable ->WakeUp pin = Disable
+	<action>Pins Used->WKUP = Disable
+</dep>
+
+<dep>
+    <type>value
+    <trigger>WakeUp pin enable ->WakeUp pin = Enable
+	<action>Pins Used->WKUP = Enable
+</dep>
 *******************************<<config wizard end>>**************************/
 #include "stm32f10x.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_pwr.h"
+
+#define WKUP ENABLE
 
 #if (STRCMP($pvdIntEn$, DISABLE) == 0)
 #include "stm32f10x_exti.h"
